@@ -1,0 +1,22 @@
+{
+  "name": "ahmardesign",
+  "version": "1.0.0",
+  "description": "AHMAR Design - A Daisy UI clone in Vanilla CSS",
+  "main": "src/js/ahmardesign.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && vite"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "daisyui",
+    "components",
+    "themes"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

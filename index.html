@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHMAR Design - Vanilla CSS Component Library</title>
+  <meta name="description" content="A premium, lightweight, utility-friendly Vanilla CSS clone of Daisy UI. Complete with responsive layout helpers, interactive modules, and 8 color themes.">
+  <!-- Link our compiled stylesheet -->
+  <link rel="stylesheet" href="/src/css/ahmardesign.css">
+  <!-- Include Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Premium visual overrides and typography integration */
+    html {
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Elegant gradient mesh header */
+    .glow-header {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .glow-header::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 10%;
+      width: 40rem;
+      height: 40rem;
+      background: radial-gradient(circle, hsla(var(--p) / 0.15) 0%, transparent 70%);
+      border-radius: 9999px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .glow-header::after {
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      right: 10%;
+      width: 30rem;
+      height: 30rem;
+      background: radial-gradient(circle, hsla(var(--s) / 0.15) 0%, transparent 70%);
+      border-radius: 9999px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Showcase code container styles */
+    .code-container {
+      background-color: hsl(var(--b2));
+      border: 1px dashed hsla(var(--bc) / 0.15);
+      border-radius: var(--rounded-box);
+    }
+    
+    .code-editor {
+      background-color: hsl(var(--n));
+      color: hsl(var(--nc));
+      border-radius: 0.5rem;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.825rem;
+      line-height: 1.5;
+    }
+
+    /* Glassmorphism sidebar */
+    .sidebar-glass {
+      backdrop-filter: blur(12px);
+      background-color: hsla(var(--b1) / 0.85);
+      border-right: 1px solid hsla(var(--bc) / 0.08);
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- Outer layout wrapper -->
+  <div class="flex flex-col min-h-screen">
+
+    <!-- NAVBAR -->
+    <header class="navbar sticky top-0 z-50 bg-base-100 border-b border-base-200 px-4 md:px-8">
+      <div class="navbar-start">
+        <a href="#" class="flex items-center gap-2 text-xl md:text-2xl font-extrabold text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+          </svg>
+          AHMAR<span class="text-base-content font-light">design</span>
+          <span class="badge badge-primary badge-sm ml-2">v1.0</span>
+        </a>
+      </div>
+      
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal gap-2">
+          <li><a href="#intro" class="active">Documentação</a></li>
+          <li><a href="#components">Componentes</a></li>
+          <li><a href="#utilities">Utilitários</a></li>
+          <li><a href="#responsiveness">Responsividade</a></li>
+        </ul>
+      </div>
+
+      <div class="navbar-end">
+        <!-- Theme Dropdown Select -->
+        <div class="form-control max-w-xs">
+          <div class="flex items-center gap-2 bg-base-200 rounded-btn px-3 py-1">
+            <span class="text-xs font-bold text-neutral-content opacity-70">TEMA:</span>
+            <select data-theme-select class="select select-bordered select-xs border-none bg-transparent font-semibold cursor-pointer py-0 h-6 min-h-6">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="cupcake">Cupcake</option>
+              <option value="retro">Retro</option>
+              <option value="cyberpunk">Cyberpunk</option>
+              <option value="synthwave">Synthwave</option>
+              <option value="aqua">Aqua</option>
+              <option value="valentine">Valentine</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="flex flex-1 flex-col md:flex-row">
+
+      <!-- SIDEBAR -->
+      <aside class="w-full md:w-64 p-6 bg-base-200 border-r border-base-300 md:h-screen md:sticky md:top-16 overflow-y-auto">
+        <div class="mb-6">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-base-content opacity-60 mb-2">Introdução</h2>
+          <ul class="menu p-0">
+            <li><a href="#intro" class="py-1.5 px-3">Instalação</a></li>
+            <li><a href="#themes" class="py-1.5 px-3">Temas</a></li>
+          </ul>
+        </div>
+        <div class="mb-6">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-base-content opacity-60 mb-2">Componentes</h2>
+          <ul class="menu p-0">
+            <li><a href="#buttons" class="py-1.5 px-3">Botões (Buttons)</a></li>
+            <li><a href="#badges" class="py-1.5 px-3">Badges & Alertas</a></li>
+            <li><a href="#cards" class="py-1.5 px-3">Cards</a></li>
+            <li><a href="#forms" class="py-1.5 px-3">Inputs & Formulários</a></li>
+            <li><a href="#navigation" class="py-1.5 px-3">Navegação</a></li>
+            <li><a href="#overlays" class="py-1.5 px-3">Overlays Interativos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-base-content opacity-60 mb-2">Layout & Responsive</h2>
+          <ul class="menu p-0">
+            <li><a href="#responsiveness" class="py-1.5 px-3">Responsividade</a></li>
+            <li><a href="#utilities" class="py-1.5 px-3">Classes Utilitárias</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- DOCUMENTATION CONTENT -->
+      <main class="flex-1 p-6 md:p-12 max-w-6xl overflow-x-hidden glow-header">
+        
+        <!-- HERO SECTION -->
+        <section id="intro" class="mb-16 relative z-10">
+          <div class="hero rounded-box bg-base-200 p-8 md:p-16 border border-base-300 text-center md:text-left">
+            <div class="hero-content flex flex-col md:flex-row gap-8 items-center justify-between w-full">
+              <div class="max-w-xl">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+                  Componentes Semânticos em <span class="text-primary">Vanilla CSS</span>.
+                </h1>
+                <p class="text-lg opacity-80 mb-6">
+                  AHMAR Design é um clone do Daisy UI criado inteiramente em CSS puro. Sem classes utilitárias bagunçadas no HTML para definir o design básico de um botão. Use classes limpas e semânticas!
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                  <a href="#buttons" class="btn btn-primary">Ver Componentes</a>
+                  <a href="#themes" class="btn btn-outline">Explore Temas</a>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4 bg-base-100 p-6 rounded-box shadow-lg border border-base-300 w-full max-w-sm">
+                <div class="flex items-center justify-between border-b border-base-200 pb-3 mb-2">
+                  <span class="font-bold">Playground Rápido</span>
+                  <span class="badge badge-success">Online</span>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="AHMAR.toast('Isso é um alerta Toast dinâmico!', 'success')">Trigger Toast</button>
+                <label for="demo-modal" class="btn btn-outline btn-block">Visualizar Modal</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- THEMES SECTION -->
+        <section id="themes" class="mb-16">
+          <h2 class="text-3xl font-extrabold mb-2">Mecanismo de Temas</h2>
+          <p class="opacity-80 mb-6">
+            Altere o visual de todos os elementos adicionando o atributo <code>data-theme="..."</code> na tag <code>body</code>. A biblioteca altera todas as cores baseadas em variáveis CSS.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <button class="btn justify-between" onclick="AHMAR.setTheme('light')">Light <span class="badge badge-sm badge-outline">Claro</span></button>
+            <button class="btn justify-between btn-neutral" onclick="AHMAR.setTheme('dark')">Dark <span class="badge badge-sm badge-outline">Escuro</span></button>
+            <button class="btn justify-between bg-primary text-primary-content" onclick="AHMAR.setTheme('cupcake')" style="background-color: hsl(325 78% 73%); border-color: hsl(325 78% 73%); color: hsl(325 100% 10%)">Cupcake <span class="badge badge-sm badge-outline">Pastel</span></button>
+            <button class="btn justify-between" onclick="AHMAR.setTheme('retro')" style="background-color: hsl(41 33% 86%); color: hsl(38 24% 28%); border-color: hsl(41 33% 81%)">Retro <span class="badge badge-sm badge-outline">Vintage</span></button>
+            <button class="btn justify-between" onclick="AHMAR.setTheme('cyberpunk')" style="background-color: hsl(56 100% 50%); color: #000; border-color: #000; border-width: 2px">Cyberpunk <span class="badge badge-sm badge-outline">Neon</span></button>
+            <button class="btn justify-between" onclick="AHMAR.setTheme('synthwave')" style="background-color: hsl(253 43% 14%); color: hsl(310 60% 80%); border-color: hsl(253 43% 10%)">Synthwave <span class="badge badge-sm badge-outline">RetroWave</span></button>
+            <button class="btn justify-between" onclick="AHMAR.setTheme('aqua')" style="background-color: hsl(220 40% 12%); color: hsl(198 93% 90%); border-color: hsl(220 40% 8%)">Aqua <span class="badge badge-sm badge-outline">Mar</span></button>
+            <button class="btn justify-between" onclick="AHMAR.setTheme('valentine')" style="background-color: hsl(0 60% 99%); color: hsl(320 20% 35%); border-color: hsl(320 60% 97%)">Valentine <span class="badge badge-sm badge-outline">Doce</span></button>
+          </div>
+        </section>
+
+        <!-- COMPONENTS DEMO SECTIONS -->
+        <div class="divider">COMPONENTES</div>
+
+        <!-- BUTTONS SECTION -->
+        <section id="buttons" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Botões (Buttons)</h3>
+            <span class="badge badge-outline">12 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Cores de Botões</h4>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <button class="btn">Normal</button>
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-secondary">Secondary</button>
+              <button class="btn btn-accent">Accent</button>
+              <button class="btn btn-neutral">Neutral</button>
+            </div>
+            
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Status & Alertas</h4>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <button class="btn btn-info">Info</button>
+              <button class="btn btn-success">Success</button>
+              <button class="btn btn-warning">Warning</button>
+              <button class="btn btn-error">Error</button>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Estilos Especiais</h4>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <button class="btn btn-outline btn-primary">Outline Primary</button>
+              <button class="btn btn-outline btn-secondary">Outline Secondary</button>
+              <button class="btn btn-ghost">Ghost</button>
+              <button class="btn btn-link">Link Button</button>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Sizing & Shapes</h4>
+            <div class="flex flex-wrap gap-3 items-center">
+              <button class="btn btn-lg">Large</button>
+              <button class="btn btn-sm">Small</button>
+              <button class="btn btn-xs">Tiny</button>
+              <button class="btn btn-square btn-outline btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              <button class="btn btn-circle btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Code drawer -->
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-btn-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-btn')">Copiar</button>
+                <pre><code id="code-btn" class="code-editor block text-xs">
+&lt;!-- Cores Base --&gt;
+&lt;button class="btn"&gt;Normal&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+
+&lt;!-- Modificadores --&gt;
+&lt;button class="btn btn-outline btn-primary"&gt;Outline&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-sm btn-circle"&gt;O&lt;/button&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BADGES & ALERTS SECTION -->
+        <section id="badges" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Badges & Alertas</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            <!-- Badges -->
+            <div class="card card-bordered p-6 bg-base-100">
+              <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Badges (Etiquetas)</h4>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="badge">Default</span>
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-secondary">Secondary</span>
+                <span class="badge badge-accent">Accent</span>
+                <span class="badge badge-neutral">Neutral</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge badge-outline badge-primary">Outline Primary</span>
+                <span class="badge badge-lg">Large</span>
+                <span class="badge badge-xs">Tiny</span>
+              </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="card card-bordered p-6 bg-base-100">
+              <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Alertas (Alerts)</h4>
+              <div class="flex flex-col gap-3">
+                <div class="alert alert-info py-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span>Info: Nova atualização disponível!</span>
+                </div>
+                <div class="alert alert-success py-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>Sucesso: Operação concluída com êxito!</span>
+                </div>
+                <div class="alert alert-error py-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>Erro: Falha ao sincronizar arquivos.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-badge-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-badge')">Copiar</button>
+                <pre><code id="code-badge" class="code-editor block text-xs">
+&lt;!-- Badge --&gt;
+&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-outline"&gt;Outline&lt;/span&gt;
+
+&lt;!-- Alerta --&gt;
+&lt;div class="alert alert-success"&gt;
+  &lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6"&gt;...&lt;/svg&gt;
+  &lt;span&gt;Mensagem aqui&lt;/span&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARDS SECTION -->
+        <section id="cards" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Cards</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            <!-- Card 1 -->
+            <div class="card card-bordered bg-base-100">
+              <figure class="bg-base-200 py-10 flex justify-center border-b border-base-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 opacity-30 text-primary">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">
+                  Novidades no Portfólio!
+                  <div class="badge badge-secondary badge-sm">NOVO</div>
+                </h2>
+                <p>Criando interfaces inovadoras com design limpo e moderno. Explore nossos componentes de layout.</p>
+                <div class="card-actions justify-end">
+                  <div class="badge badge-outline">CSS</div>
+                  <div class="badge badge-outline">Design</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card bg-neutral text-neutral-content">
+              <div class="card-body">
+                <h2 class="card-title">Card Neutral</h2>
+                <p>Este card herda as cores contrastantes definidas no tema ativo. Perfeito para destacar informações importantes com alto contraste.</p>
+                <div class="card-actions justify-end mt-4">
+                  <button class="btn btn-primary btn-sm">Começar</button>
+                  <button class="btn btn-ghost btn-sm">Ignorar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-card-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-card')">Copiar</button>
+                <pre><code id="code-card" class="code-editor block text-xs">
+&lt;div class="card card-bordered bg-base-100"&gt;
+  &lt;figure&gt; &lt;img src="..." alt="..."&gt; &lt;/figure&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h2 class="card-title"&gt;
+      Título
+      &lt;div class="badge badge-secondary"&gt;NOVO&lt;/div&gt;
+    &lt;/h2&gt;
+    &lt;p&gt;Descrição do card...&lt;/p&gt;
+    &lt;div class="card-actions justify-end"&gt;
+      &lt;button class="btn btn-primary btn-sm"&gt;Ação&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INPUTS & FORMS SECTION -->
+        <section id="forms" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Inputs & Formulários</h3>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- Text inputs -->
+              <div class="flex flex-col gap-4">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Nome de Usuário</span>
+                  </label>
+                  <input type="text" placeholder="Digite seu nome..." class="input input-bordered" />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">E-mail</span>
+                    <span class="label-text-alt">Obrigatório</span>
+                  </label>
+                  <input type="email" placeholder="nome@exemplo.com" class="input input-bordered input-primary" />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Biografia</span>
+                  </label>
+                  <textarea class="textarea textarea-bordered" placeholder="Escreva algo sobre você..."></textarea>
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Selecione uma Opção</span>
+                  </label>
+                  <select class="select select-bordered">
+                    <option disabled selected>Escolha sua stack</option>
+                    <option>HTML / CSS</option>
+                    <option>Javascript / Node</option>
+                    <option>Python / Django</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Selection Toggles -->
+              <div class="flex flex-col gap-4 justify-between">
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Caixas de Seleção</h4>
+                  
+                  <div class="form-control mb-2">
+                    <label class="label cursor-pointer justify-start gap-4">
+                      <input type="checkbox" checked class="checkbox checkbox-primary" />
+                      <span class="label-text">Aceito os termos e condições</span>
+                    </label>
+                  </div>
+                  
+                  <div class="form-control mb-2">
+                    <label class="label cursor-pointer justify-start gap-4">
+                      <input type="checkbox" class="checkbox checkbox-secondary" />
+                      <span class="label-text">Receber atualizações semanais</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 font-bold">Botão de Rádio</h4>
+                  <div class="flex gap-6">
+                    <label class="label cursor-pointer gap-2">
+                      <input type="radio" name="radio-choice" class="radio radio-primary" checked />
+                      <span class="label-text">Opção A</span>
+                    </label>
+                    <label class="label cursor-pointer gap-2">
+                      <input type="radio" name="radio-choice" class="radio radio-secondary" />
+                      <span class="label-text">Opção B</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Alternadores (Toggles)</h4>
+                  <div class="form-control mb-2">
+                    <label class="label cursor-pointer justify-between">
+                      <span class="label-text">Modo Foco</span>
+                      <input type="checkbox" class="toggle toggle-primary" checked />
+                    </label>
+                  </div>
+                  <div class="form-control">
+                    <label class="label cursor-pointer justify-between">
+                      <span class="label-text">Notificações Push</span>
+                      <input type="checkbox" class="toggle toggle-secondary" />
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Controles Deslizantes (Range)</h4>
+                  <div class="form-control">
+                    <label class="label">
+                      <span class="label-text">Nível de Volume</span>
+                      <span class="label-text-alt">70%</span>
+                    </label>
+                    <input type="range" min="0" max="100" value="70" class="range range-primary" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-form-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-form')">Copiar</button>
+                <pre><code id="code-form" class="code-editor block text-xs">
+&lt;!-- Campo de texto --&gt;
+&lt;div class="form-control"&gt;
+  &lt;label class="label"&gt; &lt;span class="label-text"&gt;Rótulo&lt;/span&gt; &lt;/label&gt;
+  &lt;input type="text" class="input input-bordered" placeholder="Digite..."&gt;
+&lt;/div&gt;
+
+&lt;!-- Toggle --&gt;
+&lt;input type="checkbox" class="toggle toggle-primary" checked&gt;
+
+&lt;!-- Checkbox --&gt;
+&lt;input type="checkbox" class="checkbox checkbox-primary" checked&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NAVIGATION SECTION -->
+        <section id="navigation" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Navegação</h3>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Barra de Navegação (Navbar)</h4>
+            <div class="navbar bg-base-200 rounded-box border border-base-300 mb-6">
+              <div class="navbar-start">
+                <a class="btn btn-ghost font-bold text-lg">AppLogo</a>
+              </div>
+              <div class="navbar-center hidden md:flex">
+                <ul class="menu menu-horizontal p-0 gap-1">
+                  <li><a href="#" class="active">Home</a></li>
+                  <li><a href="#">Produtos</a></li>
+                  <li><a href="#">Contato</a></li>
+                </ul>
+              </div>
+              <div class="navbar-end">
+                <button class="btn btn-primary btn-sm">Login</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Menu lists -->
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 font-bold">Listas de Menu</h4>
+                <ul class="menu bg-base-200 rounded-box max-w-xs border border-base-300">
+                  <li>
+                    <a class="active">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      Mensagens
+                      <span class="badge badge-sm badge-secondary">5+</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      Configurações
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tabs & Breadcrumbs -->
+              <div class="flex flex-col gap-6">
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Abas (Tabs)</h4>
+                  <div class="tabs tabs-boxed mb-4">
+                    <a class="tab tab-active">Desenvolvimento</a>
+                    <a class="tab">Design</a>
+                    <a class="tab">Marketing</a>
+                  </div>
+                  <div class="tabs">
+                    <a class="tab tab-active">Tab 1</a>
+                    <a class="tab">Tab 2</a>
+                    <a class="tab">Tab 3</a>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Trilhas (Breadcrumbs)</h4>
+                  <div class="breadcrumbs">
+                    <ul>
+                      <li><a>Home</a></li>
+                      <li><a>Documentos</a></li>
+                      <li>Sincronização</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-nav-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-nav')">Copiar</button>
+                <pre><code id="code-nav" class="code-editor block text-xs">
+&lt;!-- Navbar --&gt;
+&lt;div class="navbar bg-base-200"&gt;
+  &lt;div class="navbar-start"&gt;&lt;a class="btn btn-ghost"&gt;Logo&lt;/a&gt;&lt;/div&gt;
+  &lt;div class="navbar-center"&gt;
+    &lt;ul class="menu menu-horizontal px-1"&gt;
+      &lt;li&gt;&lt;a class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="navbar-end"&gt;
+    &lt;button class="btn btn-primary"&gt;Login&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTERACTIVE OVERLAYS SECTION -->
+        <section id="overlays" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Overlays Interativos</h3>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <!-- Modals & Toasts -->
+              <div class="flex flex-col gap-4">
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Modals (Caixas de Diálogo)</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <!-- CSS trigger -->
+                  <label for="demo-modal" class="btn btn-primary btn-sm">Modal via CSS</label>
+                  <!-- JS Trigger -->
+                  <button class="btn btn-outline btn-primary btn-sm" onclick="AHMAR.openModal('js-modal')">Modal via JS</button>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Toast Alerts (Mensagens Temporárias)</h4>
+                <div class="flex flex-wrap gap-2">
+                  <button class="btn btn-info btn-sm" onclick="AHMAR.toast('Informações salvas com sucesso!', 'info')">Toast Info</button>
+                  <button class="btn btn-success btn-sm" onclick="AHMAR.toast('Tudo correto por aqui!', 'success')">Toast Success</button>
+                  <button class="btn btn-warning btn-sm" onclick="AHMAR.toast('Verifique suas permissões de rede.', 'warning')">Toast Warning</button>
+                  <button class="btn btn-error btn-sm" onclick="AHMAR.toast('Falha ao autenticar token de sessão.', 'error')">Toast Error</button>
+                </div>
+              </div>
+
+              <!-- Tooltips, Dropdowns & Collapse -->
+              <div class="flex flex-col gap-4">
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Tooltips (Dicas flutuantes)</h4>
+                <div class="flex flex-wrap gap-4 mb-4">
+                  <div class="tooltip tooltip-top" data-tip="Olá na parte superior!">
+                    <button class="btn btn-neutral btn-sm">Tooltip Top</button>
+                  </div>
+                  <div class="tooltip tooltip-bottom" data-tip="Olá na parte inferior!">
+                    <button class="btn btn-neutral btn-sm">Tooltip Bottom</button>
+                  </div>
+                  <div class="tooltip tooltip-left" data-tip="Olá na esquerda!">
+                    <button class="btn btn-neutral btn-sm">Tooltip Left</button>
+                  </div>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Dropdowns (Menus suspensos)</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <div class="dropdown dropdown-hover">
+                    <label tabindex="0" class="btn btn-outline btn-sm">Passar o Mouse</label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-200">
+                      <li><a>Item de Link 1</a></li>
+                      <li><a>Item de Link 2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-outline btn-sm">Clique Para Abrir</label>
+                    <div tabindex="0" class="dropdown-content card card-compact p-4 shadow bg-base-100 border border-base-200 w-64 text-sm">
+                      <h4 class="font-bold mb-2">Painel de Acesso</h4>
+                      <p>Dropdowns podem carregar qualquer tipo de conteúdo estruturado dentro de cards.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Sanfonas (Collapse / Accordions)</h4>
+                <div class="flex flex-col gap-2">
+                  <div class="collapse bg-base-200 border border-base-300">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-sm font-semibold">Como funciona o pure CSS Collapse?</div>
+                    <div class="collapse-content text-sm">
+                      <p>Utilizamos a pseudo-classe <code>:checked</code> de um checkbox oculto para expandir e colapsar o contêiner dinamicamente com <code>grid-template-rows</code>.</p>
+                    </div>
+                  </div>
+                  <div class="collapse bg-base-200 border border-base-300">
+                    <input type="checkbox" />
+                    <div class="collapse-title text-sm font-semibold">Posso ter múltiplas abas abertas?</div>
+                    <div class="collapse-content text-sm">
+                      <p>Sim! Ao utilizar checkboxes individuais, cada componente age de forma autônoma permitindo manter vários expandidos de uma vez.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-overlay-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Modal e Dropdown)</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-overlay')">Copiar</button>
+                <pre><code id="code-overlay" class="code-editor block text-xs">
+&lt;!-- Modal Pure CSS --&gt;
+&lt;input type="checkbox" id="demo-modal" class="modal-toggle" /&gt;
+&lt;div class="modal"&gt;
+  &lt;div class="modal-box"&gt;
+    &lt;h3 class="font-bold text-lg"&gt;Olá!&lt;/h3&gt;
+    &lt;p class="py-4"&gt;Conteúdo do modal...&lt;/p&gt;
+    &lt;div class="modal-action"&gt;
+      &lt;label for="demo-modal" class="btn"&gt;Fechar&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Tooltip --&gt;
+&lt;div class="tooltip" data-tip="Mensagem"&gt;
+  &lt;button class="btn"&gt;Hover me&lt;/button&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESPONSIVENESS DEMO SECTION -->
+        <section id="responsiveness" class="mb-16">
+          <h2 class="text-3xl font-extrabold mb-2">Responsividade Nativa</h2>
+          <p class="opacity-80 mb-6">
+            Nosso compilador gera variantes responsivas para layout, flex, grid e espaçamento usando prefixos de tela. Redimensione a página para ver a grade abaixo mudar dinamicamente.
+          </p>
+
+          <div class="card card-bordered p-6 bg-base-200 mb-6">
+            <div class="flex items-center justify-between mb-4 border-b border-base-300 pb-2">
+              <span class="font-semibold text-sm">Preview: Grade Responsiva de Cards</span>
+              <span class="badge badge-secondary badge-outline text-xs">1 col (mob) &rarr; 2 cols (tab) &rarr; 3 cols (pc)</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="card bg-base-100 card-bordered shadow-sm">
+                <div class="card-body py-4">
+                  <h4 class="font-bold text-primary">Card Responsivo A</h4>
+                  <p class="text-sm opacity-80">Mudando colunas de forma automática utilizando os breakpoints integrados.</p>
+                </div>
+              </div>
+              <div class="card bg-base-100 card-bordered shadow-sm">
+                <div class="card-body py-4">
+                  <h4 class="font-bold text-secondary">Card Responsivo B</h4>
+                  <p class="text-sm opacity-80">Experimente alterar a largura do navegador para ver o layout fluir.</p>
+                </div>
+              </div>
+              <div class="card bg-base-100 card-bordered shadow-sm">
+                <div class="card-body py-4">
+                  <h4 class="font-bold text-accent">Card Responsivo C</h4>
+                  <p class="text-sm opacity-80">Classe utilitária aplicada: <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-responsive-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Layout Responsivo)</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-responsive')">Copiar</button>
+                <pre><code id="code-responsive" class="code-editor block text-xs">
+&lt;!-- Grid que muda de colunas dependendo do tamanho da tela --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Elemento que fica oculto no celular e flex no computador --&gt;
+&lt;div class="hidden md:flex justify-between items-center"&gt;
+  &lt;span&gt;Apenas telas médias ou maiores&lt;/span&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- UTILITY CLASSES QUICK REFERENCE -->
+        <section id="utilities" class="mb-16">
+          <h2 class="text-3xl font-extrabold mb-2">Classes Utilitárias Geradas</h2>
+          <p class="opacity-80 mb-6">
+            As classes abaixo possuem suporte completo a variantes de tela (<code>sm:</code>, <code>md:</code>, <code>lg:</code>, <code>xl:</code>, <code>2xl:</code>) e possuem a tag <code>!important</code> para garantir precedência.
+          </p>
+
+          <div class="card card-bordered overflow-hidden bg-base-100">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-sm">
+                <thead>
+                  <tr class="bg-base-200 text-base-content border-b border-base-300">
+                    <th class="p-4 font-bold">Tipo</th>
+                    <th class="p-4 font-bold">Exemplos de Classe</th>
+                    <th class="p-4 font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-base-200">
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Espaçamento</td>
+                    <td class="p-4"><code>p-4</code>, <code>mx-2</code>, <code>py-8</code>, <code>mt-auto</code>, <code>md:p-8</code></td>
+                    <td class="p-4">Paddings e margins em escalas de 0.25rem a 6rem.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Layout Display</td>
+                    <td class="p-4"><code>flex</code>, <code>grid</code>, <code>hidden</code>, <code>block</code>, <code>md:hidden</code></td>
+                    <td class="p-4">Configuração do display box-model.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Posições Flex</td>
+                    <td class="p-4"><code>items-center</code>, <code>justify-between</code>, <code>flex-col</code></td>
+                    <td class="p-4">Alinhamento, justificação e direção de caixas flexíveis.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Grid Template</td>
+                    <td class="p-4"><code>grid-cols-2</code>, <code>col-span-3</code>, <code>gap-4</code>, <code>lg:grid-cols-4</code></td>
+                    <td class="p-4">Divisão de grades de 1 a 12 colunas e espaçamento entre células.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Tipografia</td>
+                    <td class="p-4"><code>text-xl</code>, <code>font-bold</code>, <code>text-center</code>, <code>md:text-4xl</code></td>
+                    <td class="p-4">Tamanho da fonte, espessura e alinhamento do texto.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-4 font-semibold text-primary">Cores e Bordas</td>
+                    <td class="p-4"><code>bg-primary</code>, <code>text-neutral-content</code>, <code>border-error</code></td>
+                    <td class="p-4">Aplicações rápidas das cores semânticas do tema ativo.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer p-10 bg-neutral text-neutral-content border-t border-base-300">
+      <div>
+        <span class="footer-title">Projeto</span>
+        <a href="#intro" class="link hover:underline">Instalação</a>
+        <a href="#themes" class="link hover:underline">Temas</a>
+        <a href="#components" class="link hover:underline">Componentes</a>
+      </div> 
+      <div>
+        <span class="footer-title">Recursos</span>
+        <a href="https://daisyui.com" target="_blank" class="link hover:underline">Inspirado no Daisy UI</a>
+        <a href="#" class="link hover:underline">Vanilla CSS</a>
+        <a href="#" class="link hover:underline">Sem Dependências</a>
+      </div> 
+      <div>
+        <span class="footer-title">Licença</span>
+        <p>AHMAR Design &copy; 2026 - MIT License. Desenvolvido para aplicações web rápidas e sem overhead.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- PURE CSS MODAL BACKING CHECKBOX -->
+  <input type="checkbox" id="demo-modal" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box">
+      <h3 class="font-extrabold text-lg flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-success">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Modal Pure CSS!
+      </h3>
+      <p class="py-4 opacity-80">
+        Este modal foi aberto sem uma única linha de JavaScript. Ele utiliza o estado <code>:checked</code> de um checkbox linkado através do <code>id</code> e <code>label</code>.
+      </p>
+      <div class="modal-action">
+        <label for="demo-modal" class="btn btn-primary">Entendido!</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMMATIC JS MODAL -->
+  <div id="js-modal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-extrabold text-lg flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-primary">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+        </svg>
+        Modal Via Javascript!
+      </h3>
+      <p class="py-4 opacity-80">
+        Este modal foi ativado utilizando a biblioteca JS helper exposta globalmente: <code>AHMAR.openModal('js-modal')</code>.
+      </p>
+      <div class="modal-action">
+        <button class="btn btn-neutral" data-close-modal>Fechar</button>
+        <button class="btn btn-primary" onclick="AHMAR.toast('Ação executada com sucesso!', 'success'); AHMAR.closeModal('js-modal')">Confirmar Ação</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link our JS helpers -->
+  <script src="/src/js/ahmardesign.js"></script>
+
+  <!-- Interactive copy and UI helper scripts -->
+  <script>
+    // Copy code snippet helper
+    function copyCode(elementId) {
+      const codeElement = document.getElementById(elementId);
+      if (!codeElement) return;
+
+      const codeText = codeElement.innerText || codeElement.textContent;
+      navigator.clipboard.writeText(codeText.trim())
+        .then(() => {
+          // Trigger a beautiful success toast using our framework's JS helper
+          AHMAR.toast('Código copiado para a área de transferência!', 'success');
+        })
+        .catch(err => {
+          AHMAR.toast('Erro ao copiar código. Tente manualmente.', 'error');
+          console.error('Failed to copy: ', err);
+        });
+    }
+  </script>
+</body>
+</html>
