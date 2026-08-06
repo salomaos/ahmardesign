@@ -538,6 +538,234 @@
 
 
 /* ==========================================
+   LOADING, PROGRESS & SKELETON
+   ========================================== */
+
+/* Loading Spinner */
+.loading {
+  pointer-events: none;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  border: 0.25rem solid currentColor;
+  border-top-color: transparent;
+  vertical-align: middle;
+  color: hsl(var(--bc));
+  animation: ahmar-loading-spin 0.6s linear infinite;
+}
+
+@keyframes ahmar-loading-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Loading Sizes */
+.loading-xs { width: 1rem; height: 1rem; border-width: 0.125rem; }
+.loading-sm { width: 1.25rem; height: 1.25rem; border-width: 0.2rem; }
+.loading-md { width: 1.5rem; height: 1.5rem; border-width: 0.25rem; }
+.loading-lg { width: 2.5rem; height: 2.5rem; border-width: 0.375rem; }
+
+/* Loading Colors */
+.loading-primary { color: hsl(var(--p)); }
+.loading-secondary { color: hsl(var(--s)); }
+.loading-accent { color: hsl(var(--a)); }
+.loading-neutral { color: hsl(var(--n)); }
+.loading-info { color: hsl(var(--in)); }
+.loading-success { color: hsl(var(--su)); }
+.loading-warning { color: hsl(var(--wa)); }
+.loading-error { color: hsl(var(--er)); }
+
+/* Loading Variants: Dots */
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: auto;
+  height: auto;
+  border: 0;
+  animation: none;
+}
+.loading-dots::before,
+.loading-dots::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: currentColor;
+  animation: ahmar-loading-bounce 1.4s ease-in-out infinite;
+}
+.loading-dots::before { animation-delay: -0.32s; }
+.loading-dots::after { animation-delay: -0.16s; }
+
+@keyframes ahmar-loading-bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Loading Variants: Bars */
+.loading-bars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: auto;
+  height: 1.5rem;
+  border: 0;
+  animation: none;
+}
+.loading-bars::before,
+.loading-bars::after {
+  content: "";
+  width: 0.25rem;
+  height: 100%;
+  border-radius: 0.25rem;
+  background-color: currentColor;
+  animation: ahmar-loading-bar 1s ease-in-out infinite;
+}
+.loading-bars::before { animation-delay: -0.5s; }
+.loading-bars::after { animation-delay: -0.25s; }
+
+@keyframes ahmar-loading-bar {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+/* Loading Variants: Ball */
+.loading-ball {
+  border: 0;
+  background-color: currentColor;
+  animation: ahmar-loading-ball 1.2s ease-in-out infinite;
+}
+
+@keyframes ahmar-loading-ball {
+  0%, 100% { transform: translateY(-0.5rem); }
+  50% { transform: translateY(0.5rem); }
+}
+
+/* Loading inside Buttons */
+.btn.loading {
+  pointer-events: none;
+  position: relative;
+}
+.btn.loading > * {
+  opacity: 0;
+}
+.btn.loading::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  animation: ahmar-loading-spin 0.6s linear infinite;
+}
+
+/* Progress Bars */
+.progress {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  border: 0;
+  border-radius: 9999px;
+  background-color: hsla(var(--bc) / 0.1);
+  --progress-color: hsl(var(--n));
+  overflow: hidden;
+}
+.progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+.progress::-webkit-progress-value {
+  background-color: var(--progress-color);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+.progress::-moz-progress-bar {
+  background-color: var(--progress-color);
+  border-radius: 9999px;
+}
+
+/* Progress Colors */
+.progress-primary { --progress-color: hsl(var(--p)); }
+.progress-secondary { --progress-color: hsl(var(--s)); }
+.progress-accent { --progress-color: hsl(var(--a)); }
+.progress-neutral { --progress-color: hsl(var(--n)); }
+.progress-info { --progress-color: hsl(var(--in)); }
+.progress-success { --progress-color: hsl(var(--su)); }
+.progress-warning { --progress-color: hsl(var(--wa)); }
+.progress-error { --progress-color: hsl(var(--er)); }
+
+/* Progress Sizes */
+.progress-xs { height: 0.25rem; }
+.progress-sm { height: 0.375rem; }
+.progress-md { height: 0.5rem; }
+.progress-lg { height: 0.75rem; }
+.progress-xl { height: 1.25rem; }
+
+/* Indeterminate Progress */
+.progress:indeterminate,
+.progress-indeterminate {
+  background-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--progress-color) 40%,
+    var(--progress-color) 60%,
+    transparent 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 35% 100%;
+  animation: ahmar-progress-indeterminate 1.4s ease-in-out infinite;
+}
+.progress:indeterminate::-webkit-progress-bar,
+.progress-indeterminate::-webkit-progress-bar,
+.progress:indeterminate::-webkit-progress-value,
+.progress-indeterminate::-webkit-progress-value,
+.progress:indeterminate::-moz-progress-bar,
+.progress-indeterminate::-moz-progress-bar {
+  background-color: transparent;
+}
+
+@keyframes ahmar-progress-indeterminate {
+  from { background-position: -35% 0; }
+  to { background-position: 135% 0; }
+}
+
+/* Skeleton (Loading Placeholders) */
+.skeleton {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--rounded-box, 1rem);
+  background-color: hsla(var(--bc) / 0.1);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    hsla(var(--b1) / 0.6),
+    transparent
+  );
+  animation: ahmar-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes ahmar-skeleton-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+
+/* ==========================================
    NAVIGATION
    ========================================== */
 .navbar {

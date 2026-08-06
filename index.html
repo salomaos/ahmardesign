@@ -148,6 +148,7 @@
             <li><a href="#forms" class="py-1.5 px-3">Inputs & Formulários</a></li>
             <li><a href="#navigation" class="py-1.5 px-3">Navegação</a></li>
             <li><a href="#overlays" class="py-1.5 px-3">Overlays Interativos</a></li>
+            <li><a href="#loading" class="py-1.5 px-3">Loading & Progresso</a></li>
           </ul>
         </div>
         <div>
@@ -757,6 +758,116 @@
 &lt;div class="tooltip" data-tip="Mensagem"&gt;
   &lt;button class="btn"&gt;Hover me&lt;/button&gt;
 &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LOADING & PROGRESS SECTION -->
+        <section id="loading" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Loading, Progresso & Skeleton</h3>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              <!-- Spinners -->
+              <div class="flex flex-col gap-4">
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Spinners (Carregamento)</h4>
+                <div class="flex flex-wrap items-center gap-4">
+                  <span class="loading"></span>
+                  <span class="loading loading-sm"></span>
+                  <span class="loading loading-md"></span>
+                  <span class="loading loading-lg"></span>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                  <span class="loading loading-primary"></span>
+                  <span class="loading loading-secondary"></span>
+                  <span class="loading loading-accent"></span>
+                  <span class="loading loading-neutral"></span>
+                  <span class="loading loading-success"></span>
+                  <span class="loading loading-warning"></span>
+                  <span class="loading loading-error"></span>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Variantes</h4>
+                <div class="flex flex-wrap items-center gap-5">
+                  <span class="loading loading-dots"></span>
+                  <span class="loading loading-bars"></span>
+                  <span class="loading loading-ball loading-primary"></span>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Dentro de Botões</h4>
+                <div class="flex flex-wrap items-center gap-3">
+                  <button class="btn btn-primary loading">Carregando</button>
+                  <button class="btn btn-outline btn-sm loading">Salvando...</button>
+                  <button class="btn btn-circle btn-sm loading"></button>
+                </div>
+              </div>
+
+              <!-- Progress -->
+              <div class="flex flex-col gap-4">
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Progress Bars</h4>
+                <div class="flex flex-col gap-3">
+                  <progress class="progress" value="40" max="100"></progress>
+                  <progress class="progress progress-primary" value="70" max="100"></progress>
+                  <progress class="progress progress-secondary" value="55" max="100"></progress>
+                  <progress class="progress progress-accent" value="80" max="100"></progress>
+                  <progress class="progress progress-success" value="90" max="100"></progress>
+                  <progress class="progress progress-warning" value="60" max="100"></progress>
+                  <progress class="progress progress-error" value="30" max="100"></progress>
+                </div>
+
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Tamanhos & Indeterminado</h4>
+                <div class="flex flex-col gap-3">
+                  <progress class="progress progress-xs" value="25" max="100"></progress>
+                  <progress class="progress progress-sm progress-primary" value="50" max="100"></progress>
+                  <progress class="progress progress-lg progress-accent" value="75" max="100"></progress>
+                  <progress class="progress progress-xl progress-error" value="100" max="100"></progress>
+                  <progress class="progress progress-primary progress-indeterminate"></progress>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Skeletons -->
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 mt-8">Skeletons (Placeholders de Carregamento)</h4>
+            <div class="flex flex-wrap gap-8 items-start">
+              <div class="flex flex-col gap-3 w-72">
+                <div class="flex items-center gap-3">
+                  <div class="skeleton rounded-full w-14 h-14 shrink-0"></div>
+                  <div class="flex flex-col gap-2 flex-1">
+                    <div class="skeleton h-4 w-3/4"></div>
+                    <div class="skeleton h-4 w-1/2"></div>
+                  </div>
+                </div>
+                <div class="skeleton h-32 w-full"></div>
+                <div class="skeleton h-6 w-2/3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-loading-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Loading, Progress & Skeleton)</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-loading')">Copiar</button>
+                <pre><code id="code-loading" class="code-editor block text-xs">
+&lt;!-- Spinner --&gt;
+&lt;span class="loading loading-lg loading-primary"&gt;&lt;/span&gt;
+&lt;span class="loading loading-dots"&gt;&lt;/span&gt;
+
+&lt;!-- Botão em estado de carregamento --&gt;
+&lt;button class="btn btn-primary loading"&gt;Carregando&lt;/button&gt;
+
+&lt;!-- Barra de progresso --&gt;
+&lt;progress class="progress progress-primary" value="70" max="100"&gt;&lt;/progress&gt;
+&lt;progress class="progress progress-primary progress-indeterminate"&gt;&lt;/progress&gt;
+
+&lt;!-- Skeleton --&gt;
+&lt;div class="skeleton rounded-full h-14 w-14"&gt;&lt;/div&gt;
+&lt;div class="skeleton h-32 w-full"&gt;&lt;/div&gt;
                 </code></pre>
               </div>
             </div>
