@@ -8,8 +8,9 @@
 
 - **Componentes Semânticos**: Botões, cards, modais, formulários, alertas, menus, breadcrumbs, etc., com classes legíveis (`.btn`, `.card`, `.modal`).
 - **Sistema de Temas Dinâmico**: Suporte nativo a 8 temas prontos para uso (`light`, `dark`, `cupcake`, `retro`, `cyberpunk`, `synthwave`, `aqua`, `valentine`) ativados via atributo `data-theme`.
-- **Utilitários Gerados Dinamicamente**: Um script de build gera utilitários de espaçamento, cores, tipografia, grid, flexbox e visibilidade de forma automatizada.
-- **Responsividade Out-of-the-Box**: Suporte a breakpoints com prefixos (ex: `md:flex-row`, `lg:grid-cols-4`).
+- **Utilitários Gerados Dinamicamente**: Um script de build gera utilitários de espaçamento, cores, tipografia, grid, flexbox, dimensões, posicionamento, transformações e visibilidade de forma automatizada — todos com variantes responsivas.
+- **Responsividade Out-of-the-Box**: Suporte a breakpoints com prefixos (ex: `md:flex-row`, `lg:grid-cols-4`, `2xl:w-1/2`).
+- **Acessível por padrão**: anel de foco visível via `:focus-visible` e respeito a `prefers-reduced-motion` (tooltips/dropdowns também abrem por teclado).
 - **Utilitários JavaScript**: Helper global `AHMAR` para controle de temas, exibição de modais programaticamente e criação de alertas Toast interativos.
 
 ---
@@ -150,20 +151,29 @@ AHMAR.toast('Operação realizada com sucesso!', 'success', 4000);
 Abre ou fecha um elemento de modal pelo seu `id`.
 - **Parâmetros:** `id` (String): ID do elemento HTML do modal.
 
+### 4. `AHMAR.init()`
+Executado automaticamente no load do script. É **seguro e idempotente chamar de novo** — por isso pode (e deve) ser invocado após o mount em frameworks SPA (Svelte, React, Vue) quando elementos como `.collapse` (sem checkbox) são renderizados depois do load. A biblioteca usa delegação de eventos no `document`, então elementos criados dinamicamente já são cobertos sem re-binding manual:
+
+```javascript
+// Exemplo: dentro de onMount / useEffect
+AHMAR.init();
+```
+
 ---
 
 ## Resumo de Componentes Disponíveis
 
 | Componente | Classe Base | Modificadores de Estilo / Cores | Modificadores de Tamanho / Forma |
 | :--- | :--- | :--- | :--- |
-| **Botões** | `.btn` | `.btn-primary`, `.btn-secondary`, `.btn-accent`, `.btn-neutral`, `.btn-info`, `.btn-success`, `.btn-warning`, `.btn-error`, `.btn-outline`, `.btn-ghost`, `.btn-link` | `.btn-lg`, `.btn-sm`, `.btn-xs`, `.btn-wide`, `.btn-block`, `.btn-square`, `.btn-circle` |
+| **Botões** | `.btn` | `.btn-primary`, `.btn-secondary`, `.btn-accent`, `.btn-neutral`, `.btn-info`, `.btn-success`, `.btn-warning`, `.btn-error`, `.btn-outline`, `.btn-ghost`, `.btn-link`, estado `:disabled` / `.btn-disabled` | `.btn-lg`, `.btn-sm`, `.btn-xs`, `.btn-wide`, `.btn-block`, `.btn-square`, `.btn-circle` |
 | **Badges** | `.badge` | `.badge-primary`, `.badge-secondary`, `.badge-accent`, `.badge-neutral`, `.badge-info`, `.badge-success`, `.badge-warning`, `.badge-error`, `.badge-outline` | `.badge-lg`, `.badge-md`, `.badge-sm`, `.badge-xs` |
-| **Cards** | `.card` | `.card-bordered`, `.card-side` (layout horizontal) | Utiliza classes adicionais: `.card-body`, `.card-title`, `.card-actions` |
+| **Cards** | `.card` | `.card-bordered`, `.card-side` (horizontal), `.card-compact` | `.card-body`, `.card-title`, `.card-actions` |
 | **Alertas** | `.alert` | `.alert-info`, `.alert-success`, `.alert-warning`, `.alert-error` | Layout flexível para ícones e textos |
-| **Formulários** | `.form-control` | `.input-primary`, `.select-primary`, `.checkbox-primary`, `.radio-primary`, `.toggle-primary` | `.input-bordered`, `.textarea-bordered`, `.select-bordered`, `.range` |
-| **Navegação** | `.navbar`, `.menu`, `.tabs`, `.breadcrumbs` | `.menu-horizontal`, `.tab-active`, `.tabs-bordered`, `.tabs-boxed` | Menus e abas responsivas e estilizadas |
-| **Layout** | `.divider`, `.hero`, `.footer` | `.divider-horizontal` | Helpers para divisão, banners e rodapés |
-| **Overlays** | `.dropdown`, `.modal`, `.tooltip`, `.collapse`, `.toast` | `.dropdown-end`, `.dropdown-top`, `.tooltip-bottom`, `.tooltip-left`, `.tooltip-right`, `.collapse-open` | Elementos interativos baseados em CSS ou JS |
+| **Formulários** | `.form-control`, `.label` | `.input-primary`, `.select-primary`, `.checkbox-primary`, `.radio-primary`, `.toggle-primary`, `.range-primary`, estado `:disabled` | `.input-bordered`, `.textarea-bordered`, `.select-bordered`, `.select-xs`, `.select-sm`, `.select-md`, `.select-lg` |
+| **Links** | `.link` | sublinhado semântico | — |
+| **Navegação** | `.navbar`, `.menu`, `.tabs`, `.breadcrumbs` | `.menu-horizontal`, `.active`, `.tab-active`, `.tabs-bordered`, `.tabs-boxed` | Menus e abas responsivas e estilizadas |
+| **Layout** | `.divider`, `.hero`, `.footer` | `.divider-horizontal`, `.footer-title` | Helpers para divisão, banners e rodapés |
+| **Overlays** | `.dropdown`, `.modal`, `.tooltip`, `.collapse`, `.toast` | `.dropdown-end`, `.dropdown-top`, `.dropdown-left`, `.dropdown-right`, `.tooltip-top`, `.tooltip-bottom`, `.tooltip-left`, `.tooltip-right`, `.collapse-open`, `.modal-open` | Abrem via `:focus-within`, `:hover` ou checkbox (collapse/modal) |
 
 ---
 
@@ -178,6 +188,20 @@ O script de compilação gera automaticamente classes utilitárias para facilita
 - `2xl:` (`@media (min-width: 1536px)`)
 
 *Exemplo de uso:* `.flex-col md:flex-row` (coluna em telas pequenas, linha em telas médias e maiores).
+
+### Famílias de utilitários
+
+| Família | Exemplos |
+| :--- | :--- |
+| **Espaçamento** | `p-4`, `px-2`, `py-1.5`, `m-auto`, `mt-8`, `gap-4` |
+| **Exibição & Layout** | `block`, `flex`, `grid`, `hidden`, `flex-row`, `items-center`, `justify-between`, `flex-1`, `grid-cols-12`, `col-span-4` |
+| **Dimensões** | `w-64`, `w-full`, `w-1/2`, `w-screen`, `h-screen`, `min-h-screen`, `min-w-full`, `max-w-2xl`, `max-h-screen` |
+| **Posicionamento** | `static`, `fixed`, `absolute`, `relative`, `sticky`, `top-0`, `top-16`, `z-50`, `float-right` |
+| **Tipografia** | `text-sm`–`text-6xl`, `font-bold`, `text-center`, `tracking-tight`, `leading-none`, `uppercase`, `truncate`, `break-words`, `whitespace-nowrap` |
+| **Cores** | `bg-primary`, `text-base-200`, `border-info`, `divide-y`, `divide-base-200`, `bg-transparent` |
+| **Bordas** | `border`, `border-2`, `border-t`, `border-b`, `border-x`, `border-collapse` |
+| **Efeitos** | `opacity-50`, `z-50`, `shadow-md`, `rounded-box`, `scale-95`, `translate-y-4`, `rotate-45`, `object-cover` |
+| **Overflow** | `overflow-auto`, `overflow-x-hidden`, `overflow-y-auto` |
 
 ---
 

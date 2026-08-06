@@ -1,21 +1,45 @@
 {
   "name": "ahmardesign",
   "version": "1.0.0",
-  "description": "AHMAR Design - A Daisy UI clone in Vanilla CSS",
+  "description": "AHMAR Design - lightweight vanilla CSS component library inspired by Daisy UI. Pure CSS, no framework, 8 themes.",
   "main": "src/js/ahmardesign.js",
+  "style": "src/css/ahmardesign.css",
+  "exports": {
+    ".": {
+      "style": "./src/css/ahmardesign.css",
+      "default": "./src/js/ahmardesign.js"
+    },
+    "./ahmardesign.css": "./src/css/ahmardesign.css",
+    "./ahmardesign.js": "./src/js/ahmardesign.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": true,
+  "files": [
+    "src/css/ahmardesign.css",
+    "src/js/ahmardesign.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "node scripts/build.js",
-    "dev": "node scripts/build.js && vite"
+    "dev": "node scripts/build.js && vite",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "css",
-    "framework",
-    "daisyui",
+    "css-framework",
+    "vanilla-css",
+    "ui-library",
+    "design-system",
     "components",
-    "themes"
+    "utilities",
+    "themes",
+    "no-dependencies",
+    "daisyui",
+    "tailwind"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Salomão",
+  "license": "MIT",
   "devDependencies": {
     "vite": "^5.0.0"
   }
