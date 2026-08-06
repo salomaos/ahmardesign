@@ -10,6 +10,7 @@
     themes: ['light', 'dark', 'cupcake', 'retro', 'cyberpunk', 'synthwave', 'aqua', 'valentine'],
     
     init() {
+      // Safe to call again (e.g. after a SPA mount): bindings are delegated and guarded.
       // 1. Initialize Theme
       this.initTheme();
       
@@ -21,17 +22,28 @@
     initTheme() {
       const savedTheme = localStorage.getItem('ahmar-theme') || 'light';
       this.setTheme(savedTheme);
-      
-      // Sync theme selects if any exist on the page
-      document.addEventListener('DOMContentLoaded', () => {
-        const themeSelectors = document.querySelectorAll('[data-theme-select]');
-        themeSelectors.forEach(select => {
+
+      // Sync theme selects already on the page
+      const syncSelects = () => {
+        document.querySelectorAll('[data-theme-select]').forEach(select => {
           select.value = savedTheme;
-          select.addEventListener('change', (e) => {
-            this.setTheme(e.target.value);
-          });
         });
-      });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncSelects, { once: true });
+      } else {
+        syncSelects();
+      }
+
+      // Delegated change handler covers selects added after init (SPA mounts)
+      if (!this._themeSelectBound) {
+        this._themeSelectBound = true;
+        document.addEventListener('change', (e) => {
+          if (e.target.matches('[data-theme-select]')) {
+            this.setTheme(e.target.value);
+          }
+        });
+      }
     },
 
     setTheme(theme) {
@@ -52,6 +64,8 @@
 
     // Modal helpers (for JS control, though pure HTML checkbox works too!)
     initModals() {
+      if (this._modalBound) return;
+      this._modalBound = true;
       document.addEventListener('click', (e) => {
         // Close modal when clicking on close buttons
         const closeBtn = e.target.closest('[data-close-modal]');
@@ -92,16 +106,16 @@
       }
     },
 
-    // Dynamic Collapse trigger
+    // Dynamic Collapse trigger (delegated, covers collapses rendered after init)
     initCollapse() {
-      // Handles toggling collapse state via JS if checkboxes aren't used
-      document.querySelectorAll('.collapse:not(:has(input[type="checkbox"]))').forEach(collapse => {
-        const title = collapse.querySelector('.collapse-title');
-        if (title) {
-          title.addEventListener('click', () => {
-            collapse.classList.toggle('collapse-open');
-          });
-        }
+      if (this._collapseBound) return;
+      this._collapseBound = true;
+      document.addEventListener('click', (e) => {
+        const title = e.target.closest('.collapse-title');
+        if (!title) return;
+        const collapse = title.closest('.collapse');
+        if (!collapse || collapse.matches(':has(input[type="checkbox"])')) return;
+        collapse.classList.toggle('collapse-open');
       });
     },
 
@@ -115,9 +129,9 @@
         document.body.appendChild(toastContainer);
       }
 
-      // Create alert element
+      // Create alert element (entrance/exit animation is pure CSS via @keyframes)
       const alert = document.createElement('div');
-      alert.className = `alert alert-${type} shadow-md transition-all duration-300 transform translate-y-10 opacity-0`;
+      alert.className = `alert alert-${type} shadow-md`;
       
       // Determine icon
       let icon = '';
@@ -138,15 +152,10 @@
 
       toastContainer.appendChild(alert);
 
-      // Trigger animations
+      // Auto-destroy toast after the exit animation (pure CSS `ahmar-toast-out`)
       setTimeout(() => {
-        alert.classList.remove('translate-y-10', 'opacity-0');
-      }, 50);
-
-      // Auto-destroy toast
-      setTimeout(() => {
-        alert.classList.add('opacity-0', 'scale-95');
-        alert.addEventListener('transitionend', () => {
+        alert.classList.add('toast-closing');
+        alert.addEventListener('animationend', () => {
           alert.remove();
           // Remove container if empty
           if (toastContainer.children.length === 0) {

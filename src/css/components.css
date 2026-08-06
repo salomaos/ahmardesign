@@ -180,6 +180,16 @@
 .btn-square.btn-lg { width: 4rem; }
 .btn-circle.btn-lg { width: 4rem; border-radius: 9999px; }
 
+/* Disabled state */
+.btn:disabled,
+.btn[disabled],
+.btn-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: saturate(0);
+}
+
 
 /* ==========================================
    BADGES
@@ -281,6 +291,20 @@
   object-fit: cover;
 }
 
+.card-compact .card-body {
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+.card-compact .card-title {
+  font-size: 1.125rem;
+}
+
+/* Links */
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 
 /* ==========================================
    ALERTS
@@ -366,6 +390,11 @@
   background-repeat: no-repeat;
   background-size: 1.25rem;
 }
+
+.select-xs { height: 1.5rem; font-size: 0.75rem; padding: 0 1.5rem 0 0.5rem; }
+.select-sm { height: 2rem; font-size: 0.75rem; padding: 0 1.5rem 0 0.75rem; }
+.select-md { height: 3rem; font-size: 0.875rem; padding: 0 2rem 0 1rem; }
+.select-lg { height: 4rem; font-size: 1.125rem; padding: 0 2.5rem 0 1.5rem; }
 
 .input-bordered,
 .textarea-bordered,
@@ -486,6 +515,26 @@
 .range-primary::-webkit-slider-thumb { background: hsl(var(--p)); }
 .range-secondary::-webkit-slider-thumb { background: hsl(var(--s)); }
 .range-accent::-webkit-slider-thumb { background: hsl(var(--a)); }
+
+/* Disabled form states */
+.input:disabled,
+.input[disabled],
+.textarea:disabled,
+.textarea[disabled],
+.select:disabled,
+.select[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: hsla(var(--bc) / 0.05);
+}
+
+.checkbox:disabled,
+.radio:disabled,
+.toggle:disabled,
+.range:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
 
 /* ==========================================
@@ -834,7 +883,8 @@
   cursor: pointer;
 }
 
-.tooltip::before {
+.tooltip::before,
+.tooltip-top::before {
   content: attr(data-tip);
   position: absolute;
   bottom: 100%;
@@ -853,6 +903,11 @@
 }
 
 .tooltip:hover::before,
+.tooltip-top:hover::before,
+.tooltip:focus-visible::before,
+.tooltip-top:focus-visible::before,
+.tooltip:focus-within::before,
+.tooltip-top:focus-within::before,
 .tooltip-open::before {
   opacity: 1;
   transform: translateX(-50%) translateY(-0.25rem);
@@ -923,6 +978,8 @@
 
 .collapse-content {
   grid-row-start: 2;
+  position: relative;
+  z-index: 20;
   overflow: hidden;
   padding: 0 1.25rem;
   opacity: 0;
@@ -942,20 +999,17 @@
 }
 
 .collapse input[type="checkbox"]:checked ~ .collapse-content,
-.collapse:focus-within .collapse-content,
 .collapse-open .collapse-content {
   padding: 0 1.25rem 1.25rem 1.25rem;
   opacity: 1;
 }
 
 .collapse input[type="checkbox"]:checked ~ .collapse-title::after,
-.collapse:focus-within .collapse-title::after,
 .collapse-open .collapse-title::after {
   transform: rotate(-135deg);
 }
 
 .collapse:has(input[type="checkbox"]:checked),
-.collapse:focus-within,
 .collapse-open {
   grid-template-rows: auto 1fr;
 }
@@ -973,6 +1027,19 @@
 }
 .toast > * {
   pointer-events: auto;
+  animation: ahmar-toast-in 0.3s ease-out;
+}
+.toast > *.toast-closing {
+  animation: ahmar-toast-out 0.3s ease-in forwards;
+}
+
+@keyframes ahmar-toast-in {
+  from { opacity: 0; translate: 0 1rem; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes ahmar-toast-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* Positions */
