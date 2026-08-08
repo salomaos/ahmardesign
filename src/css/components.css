@@ -542,7 +542,7 @@
    ========================================== */
 
 /* Loading Spinner */
-.loading {
+.loading:where(:not(.btn)) {
   pointer-events: none;
   display: inline-block;
   width: 1.5rem;
@@ -647,6 +647,7 @@
 .btn.loading {
   pointer-events: none;
   position: relative;
+  font-size: 0;
 }
 .btn.loading > * {
   opacity: 0;
@@ -762,6 +763,105 @@
 @keyframes ahmar-skeleton-shimmer {
   from { transform: translateX(-100%); }
   to { transform: translateX(100%); }
+}
+
+/* Loading, progress & skeleton are state indicators, so they keep animating
+   even when the user prefers reduced motion (decorative motion is still disabled). */
+@media (prefers-reduced-motion: reduce) {
+  .loading:where(:not(.btn)),
+  .btn.loading::before {
+    animation-duration: 0.6s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .loading-dots::before,
+  .loading-dots::after {
+    animation-duration: 1.4s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .loading-bars::before,
+  .loading-bars::after {
+    animation-duration: 1s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .loading-ball {
+    animation-duration: 1.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .progress:indeterminate,
+  .progress-indeterminate {
+    animation-duration: 1.4s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .skeleton::after {
+    animation-duration: 1.5s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+
+/* ==========================================
+   TABLES
+   ========================================== */
+.table {
+  font-size: 0.875rem;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: hsl(var(--b1));
+}
+
+.table thead th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsla(var(--bc) / 0.6);
+  background-color: hsl(var(--b2));
+  white-space: nowrap;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsla(var(--bc) / 0.1);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Zebra striping */
+.table-zebra tbody tr:nth-child(even) {
+  background-color: hsla(var(--bc) / 0.04);
+}
+
+/* Hover state */
+.table-hover tbody tr:hover {
+  background-color: hsla(var(--bc) / 0.06);
+}
+
+/* Sizes */
+.table-xs th,
+.table-xs td { padding: 0.375rem 0.5rem; }
+.table-sm th,
+.table-sm td { padding: 0.5rem 0.75rem; }
+.table-md th,
+.table-md td { padding: 0.75rem 1rem; }
+.table-lg th,
+.table-lg td { padding: 1.25rem 1.5rem; }
+
+/* Pinned rows & cols (sticky inside a scrollable container) */
+.table-pin-rows thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.table-pin-cols th,
+.table-pin-cols td {
+  position: sticky;
+  left: 0;
 }
 
 

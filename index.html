@@ -149,6 +149,7 @@
             <li><a href="#navigation" class="py-1.5 px-3">Navegação</a></li>
             <li><a href="#overlays" class="py-1.5 px-3">Overlays Interativos</a></li>
             <li><a href="#loading" class="py-1.5 px-3">Loading & Progresso</a></li>
+            <li><a href="#tables" class="py-1.5 px-3">Tabelas (Tables)</a></li>
           </ul>
         </div>
         <div>
@@ -868,6 +869,202 @@
 &lt;!-- Skeleton --&gt;
 &lt;div class="skeleton rounded-full h-14 w-14"&gt;&lt;/div&gt;
 &lt;div class="skeleton h-32 w-full"&gt;&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TABLES SECTION -->
+        <section id="tables" class="mb-16">
+          <h3 class="text-2xl font-bold mb-4">Tabelas (Tables)</h3>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+              <!-- Basic -->
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Básica</h4>
+                <div class="overflow-x-auto rounded-box border border-base-300">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Status</th>
+                        <th class="text-right">Salário</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="font-medium">Alice Martins</div>
+                          <div class="text-xs opacity-60">alice@empresa.com</div>
+                        </td>
+                        <td>Designer</td>
+                        <td><span class="badge badge-success badge-sm">Ativa</span></td>
+                        <td class="text-right">R$ 8.500</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="font-medium">Bruno Costa</div>
+                          <div class="text-xs opacity-60">bruno@empresa.com</div>
+                        </td>
+                        <td>Dev Backend</td>
+                        <td><span class="badge badge-info badge-sm">Híbrido</span></td>
+                        <td class="text-right">R$ 9.200</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="font-medium">Carla Souza</div>
+                          <div class="text-xs opacity-60">carla@empresa.com</div>
+                        </td>
+                        <td>Dev Frontend</td>
+                        <td><span class="badge badge-warning badge-sm">Afastada</span></td>
+                        <td class="text-right">R$ 9.800</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Zebra & Hover -->
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Zebra & Hover</h4>
+                <div class="overflow-x-auto rounded-box border border-base-300">
+                  <table class="table table-zebra table-hover">
+                    <thead>
+                      <tr>
+                        <th>Projeto</th>
+                        <th>Progresso</th>
+                        <th>Prioridade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="font-medium">Landing Page</div>
+                          <div class="text-xs opacity-60">Marketing</div>
+                        </td>
+                        <td>
+                          <progress class="progress progress-primary progress-xs w-24" value="90" max="100"></progress>
+                        </td>
+                        <td><span class="badge badge-error badge-sm">Alta</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="font-medium">App Mobile</div>
+                          <div class="text-xs opacity-60">Produto</div>
+                        </td>
+                        <td>
+                          <progress class="progress progress-success progress-xs w-24" value="65" max="100"></progress>
+                        </td>
+                        <td><span class="badge badge-warning badge-sm">Média</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="font-medium">Backend API</div>
+                          <div class="text-xs opacity-60">Infra</div>
+                        </td>
+                        <td>
+                          <progress class="progress progress-accent progress-xs w-24" value="40" max="100"></progress>
+                        </td>
+                        <td><span class="badge badge-success badge-sm">Baixa</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sizes -->
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 mt-8">Tamanhos</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="overflow-x-auto rounded-box border border-base-300">
+                <table class="table table-xs">
+                  <thead>
+                    <tr><th>Nome</th><th>Equipe</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="font-medium">Alice</td><td>Design</td></tr>
+                    <tr><td class="font-medium">Bruno</td><td>Backend</td></tr>
+                    <tr><td class="font-medium">Carla</td><td>Frontend</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="overflow-x-auto rounded-box border border-base-300">
+                <table class="table table-sm">
+                  <thead>
+                    <tr><th>Nome</th><th>Equipe</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="font-medium">Alice</td><td>Design</td></tr>
+                    <tr><td class="font-medium">Bruno</td><td>Backend</td></tr>
+                    <tr><td class="font-medium">Carla</td><td>Frontend</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="overflow-x-auto rounded-box border border-base-300">
+                <table class="table table-lg">
+                  <thead>
+                    <tr><th>Nome</th><th>Equipe</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="font-medium">Alice</td><td>Design</td></tr>
+                    <tr><td class="font-medium">Bruno</td><td>Backend</td></tr>
+                    <tr><td class="font-medium">Carla</td><td>Frontend</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Pinned -->
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 mt-8">Linha fixa (table-pin-rows)</h4>
+            <div class="overflow-y-auto rounded-box border border-base-300" style="max-height: 12rem">
+              <table class="table table-pin-rows">
+                <thead>
+                  <tr><th>#</th><th>Nome</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Alice Martins</td><td><span class="badge badge-success badge-sm">Ativa</span></td></tr>
+                  <tr><td>2</td><td>Bruno Costa</td><td><span class="badge badge-info badge-sm">Híbrido</span></td></tr>
+                  <tr><td>3</td><td>Carla Souza</td><td><span class="badge badge-warning badge-sm">Afastada</span></td></tr>
+                  <tr><td>4</td><td>Diego Lima</td><td><span class="badge badge-success badge-sm">Ativa</span></td></tr>
+                  <tr><td>5</td><td>Elena Rocha</td><td><span class="badge badge-error badge-sm">Inativa</span></td></tr>
+                  <tr><td>6</td><td>Fábio Nunes</td><td><span class="badge badge-success badge-sm">Ativa</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-tables-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Tabelas)</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-tables')">Copiar</button>
+                <pre><code id="code-tables" class="code-editor block text-xs">
+&lt;!-- Tabela básica --&gt;
+&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Nome&lt;/th&gt;&lt;th&gt;Cargo&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;Designer&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;!-- Zebra + hover --&gt;
+&lt;table class="table table-zebra table-hover"&gt;...&lt;/table&gt;
+
+&lt;!-- Tamanhos: table-xs / table-sm / table-lg --&gt;
+&lt;table class="table table-xs"&gt;...&lt;/table&gt;
+
+&lt;!-- Cabeçalho fixo (rolagem interna) --&gt;
+&lt;div class="overflow-y-auto" style="max-height: 12rem"&gt;
+  &lt;table class="table table-pin-rows"&gt;...&lt;/table&gt;
+&lt;/div&gt;
                 </code></pre>
               </div>
             </div>

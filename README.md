@@ -175,6 +175,7 @@ AHMAR.init();
 | **Layout** | `.divider`, `.hero`, `.footer` | `.divider-horizontal`, `.footer-title` | Helpers para divisão, banners e rodapés |
 | **Overlays** | `.dropdown`, `.modal`, `.tooltip`, `.collapse`, `.toast` | `.dropdown-end`, `.dropdown-top`, `.dropdown-left`, `.dropdown-right`, `.tooltip-top`, `.tooltip-bottom`, `.tooltip-left`, `.tooltip-right`, `.collapse-open`, `.modal-open` | Abrem via `:focus-within`, `:hover` ou checkbox (collapse/modal) |
 | **Loading** | `.loading`, `.progress`, `.skeleton` | `.loading-primary`, `.loading-dots`, `.loading-bars`, `.loading-ball`, `.btn.loading`, `.progress-primary`, `.progress-indeterminate` | `.loading-xs`–`.loading-lg`, `.progress-xs`–`.progress-xl` |
+| **Tabelas** | `.table` | `.table-zebra`, `.table-hover`, `.table-pin-rows`, `.table-pin-cols` | `.table-xs`–`.table-lg` |
 
 ---
 
