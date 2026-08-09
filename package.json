@@ -1,7 +1,7 @@
 {
   "name": "ahmardesign",
   "version": "1.0.0",
-  "description": "AHMAR Design - lightweight vanilla CSS component library inspired by Daisy UI. Pure CSS, no framework, 8 themes.",
+  "description": "AHMAR Design - lightweight vanilla CSS component library inspired by Daisy UI. Pure CSS, no framework, 10 themes.",
   "main": "src/js/ahmardesign.js",
   "style": "src/css/ahmardesign.css",
   "exports": {

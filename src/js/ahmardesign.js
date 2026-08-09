@@ -7,7 +7,7 @@
 
   const AHMAR = {
     // Theme Switcher & Storage
-    themes: ['light', 'dark', 'cupcake', 'retro', 'cyberpunk', 'synthwave', 'aqua', 'valentine'],
+    themes: ['light', 'dark', 'cupcake', 'retro', 'cyberpunk', 'synthwave', 'aqua', 'valentine', 'brutalist', 'brutalist-dark'],
     
     init() {
       // Safe to call again (e.g. after a SPA mount): bindings are delegated and guarded.
@@ -51,7 +51,7 @@
         // Set data-theme on body
         document.body.setAttribute('data-theme', theme);
         // Set color-scheme for system integrations
-        const isDark = ['dark', 'synthwave', 'aqua'].includes(theme);
+        const isDark = ['dark', 'synthwave', 'aqua', 'brutalist-dark'].includes(theme);
         document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
         
         localStorage.setItem('ahmar-theme', theme);
