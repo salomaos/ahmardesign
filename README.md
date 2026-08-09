@@ -69,6 +69,8 @@ npm run build
 
 Este script concatenará as variáveis de tema, a folha base de reset, os componentes semânticos, os utilitários estáticos e gerará os utilitários dinâmicos normais e responsivos.
 
+> **Consumidores não precisam do `scripts/`.** A pasta `scripts/` e o `build.js` existem apenas para **manutenção da biblioteca** (regenerar `src/css/ahmardesign.css` quando um utilitário/token é adicionado ou alterado). Para usar a lib no seu projeto basta o arquivo compilado `src/css/ahmardesign.css` e, se precisar das interações dinâmicas, o `src/js/ahmardesign.js`. O `build.js` **não** é publicado no pacote npm.
+
 ---
 
 ## Como Integrar no seu HTML
@@ -107,6 +109,60 @@ Para utilizar o **AHMAR Design** em qualquer página HTML, basta importar o CSS 
 
 ---
 
+## Integração com Bundlers e Frameworks (Vite, Svelte, React, Next.js)
+
+A biblioteca é **agnóstica de framework**: os componentes são CSS puro e o `AHMAR` usa apenas APIs do browser (eventos delegados no `document`, `localStorage`, `CustomEvent`), portanto não entra em conflito com a reatividade/estado do Svelte, React ou Vue.
+
+### Importação via package exports
+
+O `package.json` expõe o CSS e o JS através de subcaminhos (funciona com Vite e bundlers que respeitam o mapa de `exports`):
+
+```js
+import 'ahmardesign/ahmardesign.css';
+import 'ahmardesign/ahmardesign.js'; // expõe window.AHMAR e já roda AHMAR.init()
+```
+
+### SPA: elementos renderizados dinamicamente
+
+O `init()` é idempotente e os eventos são delegados no `document`, então componentes criados após o mount (ex.: `{#if}` no Svelte) já são cobertos sem re-binding:
+
+```js
+// Svelte: em onMount (opcional — init() já roda automaticamente no load)
+import { onMount } from 'svelte';
+onMount(() => AHMAR.init());
+```
+
+### ⚠️ SSR (SvelteKit / Next.js / Nuxt) — carregar só no cliente
+
+O `ahmardesign.js` executa `AHMAR.init()` **imediatamente ao ser carregado**, e `init()` acessa `document.body` e `localStorage` — APIs que **não existem no servidor**. Em ambientes SSR, importe o JS **apenas no cliente**:
+
+- **SvelteKit**: adicione `<script src="/path/ahmardesign.js"></script>` no `src/app.html` (fora do corpo renderizado por componente), **ou** importe dinamicamente dentro de `onMount`:
+
+```js
+// +page.svelte
+import { onMount } from 'svelte';
+onMount(async () => {
+  await import('ahmardesign/ahmardesign.js');
+});
+```
+
+- **Next.js**: use `import('ahmardesign/ahmardesign.js')` dentro de um `useEffect`, ou o componente `<Script>` com `strategy="afterInteractive"`.
+
+O **CSS** pode (e deve) ser importado normalmente, mesmo no servidor — é só estilo.
+
+### Sincronizando o tema com o estado do framework
+
+Toda chamada a `AHMAR.setTheme()` dispara o evento customizado `ahmar-theme-change` no `window`. Use-o para manter o estado reativo do framework em sincronia:
+
+```js
+// Svelte
+window.addEventListener('ahmar-theme-change', (e) => {
+  currentTheme.set(e.detail.theme); // writable store
+});
+```
+
+---
+
 ## Mecanismo de Temas
 
 A biblioteca utiliza variáveis CSS reativas. O tema é determinado pelo atributo `data-theme` na tag `body`.
@@ -124,6 +180,14 @@ A biblioteca utiliza variáveis CSS reativas. O tema é determinado pelo atribut
 Para alterar o tema programaticamente via JS:
 ```javascript
 AHMAR.setTheme('dark'); // Define o tema para dark e salva no localStorage
+```
+
+Toda troca de tema (via `AHMAR.setTheme` ou `[data-theme-select]`) dispara o evento customizado `ahmar-theme-change` no `window` com o tema em `detail.theme` — útil para sincronizar com o estado de frameworks:
+
+```javascript
+window.addEventListener('ahmar-theme-change', (e) => {
+  console.log('Tema ativo:', e.detail.theme);
+});
 ```
 
 ---
@@ -169,13 +233,14 @@ AHMAR.init();
 | **Badges** | `.badge` | `.badge-primary`, `.badge-secondary`, `.badge-accent`, `.badge-neutral`, `.badge-info`, `.badge-success`, `.badge-warning`, `.badge-error`, `.badge-outline` | `.badge-lg`, `.badge-md`, `.badge-sm`, `.badge-xs` |
 | **Cards** | `.card` | `.card-bordered`, `.card-side` (horizontal), `.card-compact` | `.card-body`, `.card-title`, `.card-actions` |
 | **Alertas** | `.alert` | `.alert-info`, `.alert-success`, `.alert-warning`, `.alert-error` | Layout flexível para ícones e textos |
-| **Formulários** | `.form-control`, `.label` | `.input-primary`, `.select-primary`, `.checkbox-primary`, `.radio-primary`, `.toggle-primary`, `.range-primary`, estado `:disabled` | `.input-bordered`, `.textarea-bordered`, `.select-bordered`, `.select-xs`, `.select-sm`, `.select-md`, `.select-lg` |
+| **Formulários** | `.form-control`, `.label`, `.fieldset`, `.input`, `.textarea`, `.select`, `.checkbox`, `.radio`, `.toggle`, `.range`, `.file-input` | `.input-primary`, `.select-primary`, `.checkbox-primary`, `.radio-primary`, `.toggle-primary`, `.range-primary`, `.input-error`–`.input-success`–`.input-warning`–`.input-info` (também para textarea/select/file-input/checkbox/radio/toggle), `.fieldset-legend`, `.fieldset-label`, estado `:disabled` | `.input-bordered`, `.textarea-bordered`, `.select-bordered`, `.file-input-bordered`, `.select-xs`–`.select-lg`, `.file-input-xs`–`.file-input-lg`, `.join`, `.join-vertical`, `.input-group`, `.input-group-vertical` |
 | **Links** | `.link` | sublinhado semântico | — |
 | **Navegação** | `.navbar`, `.menu`, `.tabs`, `.breadcrumbs` | `.menu-horizontal`, `.active`, `.tab-active`, `.tabs-bordered`, `.tabs-boxed` | Menus e abas responsivas e estilizadas |
 | **Layout** | `.divider`, `.hero`, `.footer` | `.divider-horizontal`, `.footer-title` | Helpers para divisão, banners e rodapés |
 | **Overlays** | `.dropdown`, `.modal`, `.tooltip`, `.collapse`, `.toast` | `.dropdown-end`, `.dropdown-top`, `.dropdown-left`, `.dropdown-right`, `.tooltip-top`, `.tooltip-bottom`, `.tooltip-left`, `.tooltip-right`, `.collapse-open`, `.modal-open` | Abrem via `:focus-within`, `:hover` ou checkbox (collapse/modal) |
 | **Loading** | `.loading`, `.progress`, `.skeleton` | `.loading-primary`, `.loading-dots`, `.loading-bars`, `.loading-ball`, `.btn.loading`, `.progress-primary`, `.progress-indeterminate` | `.loading-xs`–`.loading-lg`, `.progress-xs`–`.progress-xl` |
 | **Tabelas** | `.table` | `.table-zebra`, `.table-hover`, `.table-pin-rows`, `.table-pin-cols` | `.table-xs`–`.table-lg` |
+| **Avatar / Kbd / Indicator** | `.avatar`, `.kbd`, `.indicator` | `.avatar-placeholder`, `.avatar-online`, `.avatar-offline`, `.avatar-error`, `.avatar-group`, `.indicator-item`, `.indicator-start`–`.indicator-center`–`.indicator-end`, `.indicator-top`–`.indicator-middle`–`.indicator-bottom` | `.avatar-xs`–`.avatar-4xl`, `.kbd-xs`–`.kbd-lg` |
 
 ---
 

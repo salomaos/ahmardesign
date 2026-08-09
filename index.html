@@ -143,13 +143,40 @@
           <h2 class="text-xs font-bold uppercase tracking-wider text-base-content opacity-60 mb-2">Componentes</h2>
           <ul class="menu p-0">
             <li><a href="#buttons" class="py-1.5 px-3">Botões (Buttons)</a></li>
-            <li><a href="#badges" class="py-1.5 px-3">Badges & Alertas</a></li>
+            <li><a href="#badges" class="py-1.5 px-3">Badges</a></li>
+            <li><a href="#alerts" class="py-1.5 px-3">Alertas</a></li>
             <li><a href="#cards" class="py-1.5 px-3">Cards</a></li>
-            <li><a href="#forms" class="py-1.5 px-3">Inputs & Formulários</a></li>
-            <li><a href="#navigation" class="py-1.5 px-3">Navegação</a></li>
-            <li><a href="#overlays" class="py-1.5 px-3">Overlays Interativos</a></li>
-            <li><a href="#loading" class="py-1.5 px-3">Loading & Progresso</a></li>
-            <li><a href="#tables" class="py-1.5 px-3">Tabelas (Tables)</a></li>
+            <li><a href="#input" class="py-1.5 px-3">Input</a></li>
+            <li><a href="#textarea" class="py-1.5 px-3">Textarea</a></li>
+            <li><a href="#select" class="py-1.5 px-3">Select</a></li>
+            <li><a href="#checkbox" class="py-1.5 px-3">Checkbox</a></li>
+            <li><a href="#radio" class="py-1.5 px-3">Radio</a></li>
+            <li><a href="#toggle" class="py-1.5 px-3">Toggle</a></li>
+            <li><a href="#range" class="py-1.5 px-3">Range</a></li>
+            <li><a href="#fieldset" class="py-1.5 px-3">Fieldset</a></li>
+            <li><a href="#join" class="py-1.5 px-3">Join</a></li>
+            <li><a href="#file-input" class="py-1.5 px-3">Upload de Arquivo</a></li>
+            <li><a href="#validation" class="py-1.5 px-3">Validação</a></li>
+            <li><a href="#links" class="py-1.5 px-3">Links</a></li>
+            <li><a href="#navbar" class="py-1.5 px-3">Navbar</a></li>
+            <li><a href="#menu" class="py-1.5 px-3">Menu</a></li>
+            <li><a href="#tabs" class="py-1.5 px-3">Tabs</a></li>
+            <li><a href="#breadcrumbs" class="py-1.5 px-3">Breadcrumbs</a></li>
+            <li><a href="#dropdown" class="py-1.5 px-3">Dropdown</a></li>
+            <li><a href="#modal" class="py-1.5 px-3">Modal</a></li>
+            <li><a href="#tooltip" class="py-1.5 px-3">Tooltip</a></li>
+            <li><a href="#collapse" class="py-1.5 px-3">Collapse</a></li>
+            <li><a href="#toast" class="py-1.5 px-3">Toast</a></li>
+            <li><a href="#loading" class="py-1.5 px-3">Loading</a></li>
+            <li><a href="#progress" class="py-1.5 px-3">Progresso</a></li>
+            <li><a href="#skeleton" class="py-1.5 px-3">Skeleton</a></li>
+            <li><a href="#tables" class="py-1.5 px-3">Tabelas</a></li>
+            <li><a href="#avatar" class="py-1.5 px-3">Avatar</a></li>
+            <li><a href="#kbd" class="py-1.5 px-3">Kbd</a></li>
+            <li><a href="#indicator" class="py-1.5 px-3">Indicator</a></li>
+            <li><a href="#divider" class="py-1.5 px-3">Divider</a></li>
+            <li><a href="#hero" class="py-1.5 px-3">Hero</a></li>
+            <li><a href="#footer" class="py-1.5 px-3">Footer</a></li>
           </ul>
         </div>
         <div>
@@ -212,7 +239,7 @@
         </section>
 
         <!-- COMPONENTS DEMO SECTIONS -->
-        <div class="divider">COMPONENTES</div>
+        <div id="components" class="divider">COMPONENTES</div>
 
         <!-- BUTTONS SECTION -->
         <section id="buttons" class="mb-16">
@@ -284,51 +311,36 @@
           </div>
         </section>
 
-        <!-- BADGES & ALERTS SECTION -->
+        <!-- BADGES SECTION -->
         <section id="badges" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Badges & Alertas</h3>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-            <!-- Badges -->
-            <div class="card card-bordered p-6 bg-base-100">
-              <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Badges (Etiquetas)</h4>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="badge">Default</span>
-                <span class="badge badge-primary">Primary</span>
-                <span class="badge badge-secondary">Secondary</span>
-                <span class="badge badge-accent">Accent</span>
-                <span class="badge badge-neutral">Neutral</span>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="badge badge-success">Success</span>
-                <span class="badge badge-info">Info</span>
-                <span class="badge badge-warning">Warning</span>
-                <span class="badge badge-error">Error</span>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="badge badge-outline badge-primary">Outline Primary</span>
-                <span class="badge badge-lg">Large</span>
-                <span class="badge badge-xs">Tiny</span>
-              </div>
-            </div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Badges (Etiquetas)</h3>
+            <span class="badge badge-outline">14 Classes</span>
+          </div>
 
-            <!-- Alerts -->
-            <div class="card card-bordered p-6 bg-base-100">
-              <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Alertas (Alerts)</h4>
-              <div class="flex flex-col gap-3">
-                <div class="alert alert-info py-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <span>Info: Nova atualização disponível!</span>
-                </div>
-                <div class="alert alert-success py-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span>Sucesso: Operação concluída com êxito!</span>
-                </div>
-                <div class="alert alert-error py-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span>Erro: Falha ao sincronizar arquivos.</span>
-                </div>
-              </div>
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Cores</h4>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="badge">Default</span>
+              <span class="badge badge-primary">Primary</span>
+              <span class="badge badge-secondary">Secondary</span>
+              <span class="badge badge-accent">Accent</span>
+              <span class="badge badge-neutral">Neutral</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="badge badge-success">Success</span>
+              <span class="badge badge-info">Info</span>
+              <span class="badge badge-warning">Warning</span>
+              <span class="badge badge-error">Error</span>
+            </div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Outline & Tamanhos</h4>
+            <div class="flex flex-wrap gap-2 items-center">
+              <span class="badge badge-outline badge-primary">Outline Primary</span>
+              <span class="badge badge-outline badge-secondary">Outline Secondary</span>
+              <span class="badge badge-lg">Large</span>
+              <span class="badge badge-md">Medium</span>
+              <span class="badge badge-sm">Small</span>
+              <span class="badge badge-xs">Tiny</span>
             </div>
           </div>
 
@@ -339,10 +351,54 @@
               <div class="code-container p-4">
                 <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-badge')">Copiar</button>
                 <pre><code id="code-badge" class="code-editor block text-xs">
-&lt;!-- Badge --&gt;
-&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
-&lt;span class="badge badge-outline"&gt;Outline&lt;/span&gt;
+&lt;!-- Badge padrão --&gt;
+&lt;span class="badge"&gt;Default&lt;/span&gt;
 
+&lt;!-- Cores e modificadores --&gt;
+&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-outline badge-secondary"&gt;Outline Secondary&lt;/span&gt;
+&lt;span class="badge badge-sm"&gt;Pequeno&lt;/span&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ALERTS SECTION -->
+        <section id="alerts" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Alertas (Alerts)</h3>
+            <span class="badge badge-outline">5 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-3">
+              <div class="alert alert-info py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Info: Nova atualização disponível!</span>
+              </div>
+              <div class="alert alert-success py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Sucesso: Operação concluída com êxito!</span>
+              </div>
+              <div class="alert alert-warning py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                <span>Atenção: Verifique suas permissões antes de continuar.</span>
+              </div>
+              <div class="alert alert-error py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>Erro: Falha ao sincronizar arquivos.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-alert-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-alert')">Copiar</button>
+                <pre><code id="code-alert" class="code-editor block text-xs">
 &lt;!-- Alerta --&gt;
 &lt;div class="alert alert-success"&gt;
   &lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6"&gt;...&lt;/svg&gt;
@@ -356,7 +412,10 @@
 
         <!-- CARDS SECTION -->
         <section id="cards" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Cards</h3>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Cards</h3>
+            <span class="badge badge-outline">7 Classes</span>
+          </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
             <!-- Card 1 -->
@@ -418,144 +477,632 @@
           </div>
         </section>
 
-        <!-- INPUTS & FORMS SECTION -->
-        <section id="forms" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Inputs & Formulários</h3>
-          
+        <!-- INPUT SECTION -->
+        <section id="input" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Input</h3>
+            <span class="badge badge-outline">5 Classes</span>
+          </div>
+
           <div class="card card-bordered p-6 mb-4 bg-base-100">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              <!-- Text inputs -->
-              <div class="flex flex-col gap-4">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Nome de Usuário</span>
-                  </label>
-                  <input type="text" placeholder="Digite seu nome..." class="input input-bordered" />
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">E-mail</span>
-                    <span class="label-text-alt">Obrigatório</span>
-                  </label>
-                  <input type="email" placeholder="nome@exemplo.com" class="input input-bordered input-primary" />
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Biografia</span>
-                  </label>
-                  <textarea class="textarea textarea-bordered" placeholder="Escreva algo sobre você..."></textarea>
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Selecione uma Opção</span>
-                  </label>
-                  <select class="select select-bordered">
-                    <option disabled selected>Escolha sua stack</option>
-                    <option>HTML / CSS</option>
-                    <option>Javascript / Node</option>
-                    <option>Python / Django</option>
-                  </select>
-                </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Nome de Usuário</span>
+                </label>
+                <input type="text" placeholder="Digite seu nome..." class="input input-bordered" />
               </div>
-
-              <!-- Selection Toggles -->
-              <div class="flex flex-col gap-4 justify-between">
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Caixas de Seleção</h4>
-                  
-                  <div class="form-control mb-2">
-                    <label class="label cursor-pointer justify-start gap-4">
-                      <input type="checkbox" checked class="checkbox checkbox-primary" />
-                      <span class="label-text">Aceito os termos e condições</span>
-                    </label>
-                  </div>
-                  
-                  <div class="form-control mb-2">
-                    <label class="label cursor-pointer justify-start gap-4">
-                      <input type="checkbox" class="checkbox checkbox-secondary" />
-                      <span class="label-text">Receber atualizações semanais</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 font-bold">Botão de Rádio</h4>
-                  <div class="flex gap-6">
-                    <label class="label cursor-pointer gap-2">
-                      <input type="radio" name="radio-choice" class="radio radio-primary" checked />
-                      <span class="label-text">Opção A</span>
-                    </label>
-                    <label class="label cursor-pointer gap-2">
-                      <input type="radio" name="radio-choice" class="radio radio-secondary" />
-                      <span class="label-text">Opção B</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Alternadores (Toggles)</h4>
-                  <div class="form-control mb-2">
-                    <label class="label cursor-pointer justify-between">
-                      <span class="label-text">Modo Foco</span>
-                      <input type="checkbox" class="toggle toggle-primary" checked />
-                    </label>
-                  </div>
-                  <div class="form-control">
-                    <label class="label cursor-pointer justify-between">
-                      <span class="label-text">Notificações Push</span>
-                      <input type="checkbox" class="toggle toggle-secondary" />
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Controles Deslizantes (Range)</h4>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Nível de Volume</span>
-                      <span class="label-text-alt">70%</span>
-                    </label>
-                    <input type="range" min="0" max="100" value="70" class="range range-primary" />
-                  </div>
-                </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">E-mail</span>
+                  <span class="label-text-alt">Obrigatório</span>
+                </label>
+                <input type="email" placeholder="nome@exemplo.com" class="input input-bordered input-primary" />
               </div>
-
+            </div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 mt-8">Variantes de Foco</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <input type="text" placeholder="Focus primary" class="input input-bordered input-primary" />
+              <input type="text" placeholder="Focus secondary" class="input input-bordered input-secondary" />
+              <input type="text" placeholder="Focus accent" class="input input-bordered input-accent" />
             </div>
           </div>
 
           <div class="collapse bg-base-200">
-            <input type="checkbox" id="code-form-toggle" />
+            <input type="checkbox" id="code-input-toggle" />
             <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
             <div class="collapse-content">
               <div class="code-container p-4">
-                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-form')">Copiar</button>
-                <pre><code id="code-form" class="code-editor block text-xs">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-input')">Copiar</button>
+                <pre><code id="code-input" class="code-editor block text-xs">
 &lt;!-- Campo de texto --&gt;
 &lt;div class="form-control"&gt;
   &lt;label class="label"&gt; &lt;span class="label-text"&gt;Rótulo&lt;/span&gt; &lt;/label&gt;
   &lt;input type="text" class="input input-bordered" placeholder="Digite..."&gt;
 &lt;/div&gt;
-
-&lt;!-- Toggle --&gt;
-&lt;input type="checkbox" class="toggle toggle-primary" checked&gt;
-
-&lt;!-- Checkbox --&gt;
-&lt;input type="checkbox" class="checkbox checkbox-primary" checked&gt;
                 </code></pre>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- NAVIGATION SECTION -->
-        <section id="navigation" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Navegação</h3>
-          
+        <!-- TEXTAREA SECTION -->
+        <section id="textarea" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Textarea</h3>
+            <span class="badge badge-outline">5 Classes</span>
+          </div>
+
           <div class="card card-bordered p-6 mb-4 bg-base-100">
-            
-            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Barra de Navegação (Navbar)</h4>
-            <div class="navbar bg-base-200 rounded-box border border-base-300 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Biografia</span>
+                </label>
+                <textarea class="textarea textarea-bordered" placeholder="Escreva algo sobre você..."></textarea>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Comentário (focus primary)</span>
+                </label>
+                <textarea class="textarea textarea-bordered textarea-primary" placeholder="Deixe seu comentário..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-textarea-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-textarea')">Copiar</button>
+                <pre><code id="code-textarea" class="code-editor block text-xs">
+&lt;div class="form-control"&gt;
+  &lt;label class="label"&gt;&lt;span class="label-text"&gt;Biografia&lt;/span&gt;&lt;/label&gt;
+  &lt;textarea class="textarea textarea-bordered" placeholder="Escreva..."&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SELECT SECTION -->
+        <section id="select" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Select</h3>
+            <span class="badge badge-outline">9 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="form-control max-w-md mb-6">
+              <label class="label">
+                <span class="label-text">Selecione uma Opção</span>
+              </label>
+              <select class="select select-bordered">
+                <option disabled selected>Escolha sua stack</option>
+                <option>HTML / CSS</option>
+                <option>Javascript / Node</option>
+                <option>Python / Django</option>
+              </select>
+            </div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Tamanhos</h4>
+            <div class="flex flex-wrap gap-4 items-center">
+              <select class="select select-bordered select-xs">
+                <option>XS</option>
+                <option>Extra Small</option>
+              </select>
+              <select class="select select-bordered select-sm">
+                <option>SM</option>
+                <option>Small</option>
+              </select>
+              <select class="select select-bordered select-md">
+                <option>MD</option>
+                <option>Medium</option>
+              </select>
+              <select class="select select-bordered select-lg">
+                <option>LG</option>
+                <option>Large</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-select-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-select')">Copiar</button>
+                <pre><code id="code-select" class="code-editor block text-xs">
+&lt;select class="select select-bordered"&gt;
+  &lt;option&gt;Opção 1&lt;/option&gt;
+  &lt;option&gt;Opção 2&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Tamanhos --&gt;
+&lt;select class="select select-sm select-bordered"&gt;...&lt;/select&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CHECKBOX SECTION -->
+        <section id="checkbox" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Checkbox</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-4">
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-4">
+                  <input type="checkbox" checked class="checkbox checkbox-primary" />
+                  <span class="label-text">Aceito os termos e condições</span>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-4">
+                  <input type="checkbox" class="checkbox checkbox-secondary" />
+                  <span class="label-text">Receber atualizações semanais</span>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-4">
+                  <input type="checkbox" checked class="checkbox checkbox-accent" />
+                  <span class="label-text">Aceito receber e-mails promocionais</span>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-start gap-4">
+                  <input type="checkbox" class="checkbox" disabled />
+                  <span class="label-text">Opção desabilitada</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-checkbox-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-checkbox')">Copiar</button>
+                <pre><code id="code-checkbox" class="code-editor block text-xs">
+&lt;input type="checkbox" checked class="checkbox checkbox-primary"&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RADIO SECTION -->
+        <section id="radio" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Radio</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-wrap items-center gap-6">
+              <label class="label cursor-pointer gap-2">
+                <input type="radio" name="radio-demo" class="radio radio-primary" checked />
+                <span class="label-text">Opção A</span>
+              </label>
+              <label class="label cursor-pointer gap-2">
+                <input type="radio" name="radio-demo" class="radio radio-secondary" />
+                <span class="label-text">Opção B</span>
+              </label>
+              <label class="label cursor-pointer gap-2">
+                <input type="radio" name="radio-demo" class="radio radio-accent" />
+                <span class="label-text">Opção C</span>
+              </label>
+              <label class="label cursor-pointer gap-2">
+                <input type="radio" name="radio-demo" class="radio" disabled />
+                <span class="label-text">Desabilitado</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-radio-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-radio')">Copiar</button>
+                <pre><code id="code-radio" class="code-editor block text-xs">
+&lt;input type="radio" name="grupo" class="radio radio-primary" checked&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOGGLE SECTION -->
+        <section id="toggle" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Toggle</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-4 max-w-md">
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Modo Foco</span>
+                  <input type="checkbox" class="toggle toggle-primary" checked />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Notificações Push</span>
+                  <input type="checkbox" class="toggle toggle-secondary" />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Modo Noturno</span>
+                  <input type="checkbox" checked class="toggle toggle-accent" />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Desabilitado</span>
+                  <input type="checkbox" class="toggle" disabled />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-toggle-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-toggle')">Copiar</button>
+                <pre><code id="code-toggle" class="code-editor block text-xs">
+&lt;!-- Toggle --&gt;
+&lt;input type="checkbox" class="toggle toggle-primary" checked&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RANGE SECTION -->
+        <section id="range" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Range</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-6 max-w-md">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Nível de Volume</span>
+                  <span class="label-text-alt">70%</span>
+                </label>
+                <input type="range" min="0" max="100" value="70" class="range range-primary" />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Brilho da Tela</span>
+                  <span class="label-text-alt">40%</span>
+                </label>
+                <input type="range" min="0" max="100" value="40" class="range range-secondary" />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Saturação</span>
+                  <span class="label-text-alt">85%</span>
+                </label>
+                <input type="range" min="0" max="100" value="85" class="range range-accent" />
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-range-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-range')">Copiar</button>
+                <pre><code id="code-range" class="code-editor block text-xs">
+&lt;input type="range" min="0" max="100" value="70" class="range range-primary"&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FIELDSET SECTION -->
+        <section id="fieldset" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Fieldset (Grupos de Campos)</h3>
+            <span class="badge badge-outline">3 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <fieldset class="fieldset max-w-md">
+              <legend class="fieldset-legend">Dados de Entrega</legend>
+              <label class="fieldset-label" for="fieldset-name">Nome Completo</label>
+              <input type="text" id="fieldset-name" class="input input-bordered" placeholder="Digite seu nome" />
+              <label class="fieldset-label" for="fieldset-city">Cidade</label>
+              <select id="fieldset-city" class="select select-bordered">
+                <option disabled selected>Selecione a cidade</option>
+                <option>São Paulo</option>
+                <option>Rio de Janeiro</option>
+                <option>Curitiba</option>
+              </select>
+              <div class="fieldset-label">
+                <span>Deseja receber novidades?</span>
+                <input type="checkbox" class="checkbox checkbox-primary" checked />
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-fieldset-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-fieldset')">Copiar</button>
+                <pre><code id="code-fieldset" class="code-editor block text-xs">
+&lt;fieldset class="fieldset"&gt;
+  &lt;legend class="fieldset-legend"&gt;Dados de Entrega&lt;/legend&gt;
+  &lt;label class="fieldset-label" for="nome"&gt;Nome Completo&lt;/label&gt;
+  &lt;input type="text" id="nome" class="input input-bordered" placeholder="Digite seu nome" /&gt;
+  &lt;label class="fieldset-label" for="cidade"&gt;Cidade&lt;/label&gt;
+  &lt;select id="cidade" class="select select-bordered"&gt;
+    &lt;option disabled selected&gt;Selecione a cidade&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/fieldset&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JOIN SECTION -->
+        <section id="join" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Join (Campos Unificados)</h3>
+            <span class="badge badge-outline">3 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-8">
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-3">Horizontal</h4>
+                <div class="join">
+                  <input type="text" class="input input-bordered w-40" placeholder="Pesquisar..." />
+                  <button class="btn btn-primary join-item">Buscar</button>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-3">Com Select</h4>
+                <div class="join">
+                  <select class="select select-bordered w-36">
+                    <option>Geral</option>
+                    <option>Produtos</option>
+                    <option>Usuários</option>
+                  </select>
+                  <input type="text" class="input input-bordered w-56" placeholder="Termo..." />
+                  <button class="btn btn-secondary join-item">OK</button>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-3">Vertical (join-vertical)</h4>
+                <div class="join join-vertical w-64">
+                  <button class="btn join-item">Início</button>
+                  <button class="btn join-item">Perfil</button>
+                  <button class="btn join-item">Configurações</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-join-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-join')">Copiar</button>
+                <pre><code id="code-join" class="code-editor block text-xs">
+&lt;!-- Campo de busca com botão colado --&gt;
+&lt;div class="join"&gt;
+  &lt;input type="text" class="input input-bordered" placeholder="Pesquisar..." /&gt;
+  &lt;button class="btn btn-primary"&gt;Buscar&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical: join-vertical --&gt;
+&lt;div class="join join-vertical"&gt;
+  &lt;button class="btn"&gt;Início&lt;/button&gt;
+  &lt;button class="btn"&gt;Perfil&lt;/button&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FILE INPUT SECTION -->
+        <section id="file-input" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Upload de Arquivo</h3>
+            <span class="badge badge-outline">7 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-col gap-6 max-w-md">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Tamanhos</span>
+                </label>
+                <div class="flex flex-col gap-3">
+                  <input type="file" class="file-input file-input-bordered file-input-xs" />
+                  <input type="file" class="file-input file-input-bordered file-input-sm" />
+                  <input type="file" class="file-input file-input-bordered file-input-md" />
+                  <input type="file" class="file-input file-input-bordered file-input-lg" />
+                </div>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Desabilitado</span>
+                </label>
+                <input type="file" class="file-input file-input-bordered" disabled />
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-file-input-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-file-input')">Copiar</button>
+                <pre><code id="code-file-input" class="code-editor block text-xs">
+&lt;!-- Upload de arquivo padrão --&gt;
+&lt;input type="file" class="file-input file-input-bordered" /&gt;
+
+&lt;!-- Tamanhos: file-input-xs / -sm / -md / -lg --&gt;
+&lt;input type="file" class="file-input file-input-lg" /&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VALIDATION SECTION -->
+        <section id="validation" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Validação de Formulário</h3>
+            <span class="badge badge-outline">16 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Com erro</span>
+                </label>
+                <input type="text" class="input input-bordered input-error" value="email-invalido@" />
+                <label class="label">
+                  <span class="label-text-alt text-error">Formato de e-mail inválido.</span>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Sucesso</span>
+                </label>
+                <input type="text" class="input input-bordered input-success" value="nome@exemplo.com" />
+                <label class="label">
+                  <span class="label-text-alt text-success">E-mail validado.</span>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Atenção</span>
+                </label>
+                <input type="text" class="input input-bordered input-warning" value="Senha fraca" />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Info</span>
+                </label>
+                <input type="text" class="input input-bordered input-info" value="Campo opcional" />
+              </div>
+            </div>
+
+            <div class="divider">Estados em checkbox, radio e toggle</div>
+            <div class="flex flex-wrap items-center gap-6">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" class="checkbox checkbox-error" />
+                <span class="text-sm">Erro</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="checkbox" class="checkbox checkbox-success" checked />
+                <span class="text-sm">Sucesso</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="radio" name="val-radio" class="radio radio-warning" />
+                <span class="text-sm">Atenção</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="radio" name="val-radio" class="radio radio-info" checked />
+                <span class="text-sm">Info</span>
+              </div>
+              <input type="checkbox" class="toggle toggle-error" />
+              <input type="checkbox" class="toggle toggle-success" checked />
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-validation-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-validation')">Copiar</button>
+                <pre><code id="code-validation" class="code-editor block text-xs">
+&lt;!-- Campo com erro + mensagem via utilitários --&gt;
+&lt;div class="form-control"&gt;
+  &lt;label class="label"&gt;&lt;span class="label-text"&gt;E-mail&lt;/span&gt;&lt;/label&gt;
+  &lt;input type="text" class="input input-bordered input-error" /&gt;
+  &lt;label class="label"&gt;
+    &lt;span class="label-text-alt text-error"&gt;Formato inválido.&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;!-- Estados: input-error / input-success / input-warning / input-info --&gt;
+&lt;!-- Igual para textarea, select e file-input --&gt;
+&lt;!-- checkbox/radio/toggle: checkbox-error, toggle-success, etc. --&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LINKS SECTION -->
+        <section id="links" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Links</h3>
+            <span class="badge badge-outline">1 Classe</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-wrap items-center gap-6">
+              <a class="link">Link simples</a>
+              <a class="link text-primary">Link primário</a>
+              <a class="link text-secondary">Link secundário</a>
+              <a class="link hover:underline" href="#">Com hover sublinhado</a>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-link-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-link')">Copiar</button>
+                <pre><code id="code-link" class="code-editor block text-xs">
+&lt;a class="link"&gt;Link simples&lt;/a&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NAVBAR SECTION -->
+        <section id="navbar" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Navbar</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="navbar bg-base-200 rounded-box border border-base-300">
               <div class="navbar-start">
                 <a class="btn btn-ghost font-bold text-lg">AppLogo</a>
               </div>
@@ -570,11 +1117,44 @@
                 <button class="btn btn-primary btn-sm">Login</button>
               </div>
             </div>
+          </div>
 
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-navbar-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-navbar')">Copiar</button>
+                <pre><code id="code-navbar" class="code-editor block text-xs">
+&lt;!-- Navbar --&gt;
+&lt;div class="navbar bg-base-200"&gt;
+  &lt;div class="navbar-start"&gt;&lt;a class="btn btn-ghost"&gt;Logo&lt;/a&gt;&lt;/div&gt;
+  &lt;div class="navbar-center"&gt;
+    &lt;ul class="menu menu-horizontal px-1"&gt;
+      &lt;li&gt;&lt;a class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;div class="navbar-end"&gt;
+    &lt;button class="btn btn-primary"&gt;Login&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Menu</h3>
+            <span class="badge badge-outline">3 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Menu lists -->
               <div>
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 font-bold">Listas de Menu</h4>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Vertical</h4>
                 <ul class="menu bg-base-200 rounded-box max-w-xs border border-base-300">
                   <li>
                     <a class="active">
@@ -597,55 +1177,177 @@
                   </li>
                 </ul>
               </div>
-
-              <!-- Tabs & Breadcrumbs -->
-              <div class="flex flex-col gap-6">
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Abas (Tabs)</h4>
-                  <div class="tabs tabs-boxed mb-4">
-                    <a class="tab tab-active">Desenvolvimento</a>
-                    <a class="tab">Design</a>
-                    <a class="tab">Marketing</a>
-                  </div>
-                  <div class="tabs">
-                    <a class="tab tab-active">Tab 1</a>
-                    <a class="tab">Tab 2</a>
-                    <a class="tab">Tab 3</a>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Trilhas (Breadcrumbs)</h4>
-                  <div class="breadcrumbs">
-                    <ul>
-                      <li><a>Home</a></li>
-                      <li><a>Documentos</a></li>
-                      <li>Sincronização</li>
-                    </ul>
-                  </div>
-                </div>
+              <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Horizontal</h4>
+                <ul class="menu menu-horizontal bg-base-200 rounded-box border border-base-300 p-2 gap-1">
+                  <li><a class="active">Home</a></li>
+                  <li><a>Produtos</a></li>
+                  <li><a>Contato</a></li>
+                </ul>
               </div>
             </div>
-
           </div>
 
           <div class="collapse bg-base-200">
-            <input type="checkbox" id="code-nav-toggle" />
+            <input type="checkbox" id="code-menu-toggle" />
             <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
             <div class="collapse-content">
               <div class="code-container p-4">
-                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-nav')">Copiar</button>
-                <pre><code id="code-nav" class="code-editor block text-xs">
-&lt;!-- Navbar --&gt;
-&lt;div class="navbar bg-base-200"&gt;
-  &lt;div class="navbar-start"&gt;&lt;a class="btn btn-ghost"&gt;Logo&lt;/a&gt;&lt;/div&gt;
-  &lt;div class="navbar-center"&gt;
-    &lt;ul class="menu menu-horizontal px-1"&gt;
-      &lt;li&gt;&lt;a class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;div class="navbar-end"&gt;
-    &lt;button class="btn btn-primary"&gt;Login&lt;/button&gt;
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-menu')">Copiar</button>
+                <pre><code id="code-menu" class="code-editor block text-xs">
+&lt;ul class="menu bg-base-200 rounded-box"&gt;
+  &lt;li&gt;&lt;a class="active"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;Configurações&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Horizontal --&gt;
+&lt;ul class="menu menu-horizontal"&gt;...&lt;/ul&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TABS SECTION -->
+        <section id="tabs" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Tabs</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Boxed</h4>
+            <div class="tabs tabs-boxed mb-6">
+              <a class="tab tab-active">Desenvolvimento</a>
+              <a class="tab">Design</a>
+              <a class="tab">Marketing</a>
+            </div>
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Simples</h4>
+            <div class="tabs">
+              <a class="tab tab-active">Tab 1</a>
+              <a class="tab">Tab 2</a>
+              <a class="tab">Tab 3</a>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-tabs-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-tabs')">Copiar</button>
+                <pre><code id="code-tabs" class="code-editor block text-xs">
+&lt;div class="tabs tabs-boxed"&gt;
+  &lt;a class="tab tab-active"&gt;Ativa&lt;/a&gt;
+  &lt;a class="tab"&gt;Inativa&lt;/a&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BREADCRUMBS SECTION -->
+        <section id="breadcrumbs" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Breadcrumbs</h3>
+            <span class="badge badge-outline">1 Classe</span>
+          </div>
+
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="breadcrumbs">
+              <ul>
+                <li><a>Home</a></li>
+                <li><a>Documentos</a></li>
+                <li>Sincronização</li>
+              </ul>
+            </div>
+            <div class="breadcrumbs mt-4 text-sm">
+              <ul>
+                <li><a>Raiz</a></li>
+                <li><a>Componentes</a></li>
+                <li><a>Navegação</a></li>
+                <li>Breadcrumbs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-breadcrumbs-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-breadcrumbs')">Copiar</button>
+                <pre><code id="code-breadcrumbs" class="code-editor block text-xs">
+&lt;div class="breadcrumbs"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;Documentos&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Página atual&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DROPDOWN SECTION -->
+        <section id="dropdown" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Dropdown</h3>
+            <span class="badge badge-outline">7 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-wrap gap-4 items-start">
+              <div class="dropdown dropdown-hover">
+                <label tabindex="0" class="btn btn-outline btn-sm">Passar o Mouse</label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-200">
+                  <li><a>Item de Link 1</a></li>
+                  <li><a>Item de Link 2</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-outline btn-sm">Clique Para Abrir</label>
+                <div tabindex="0" class="dropdown-content card card-compact p-4 shadow bg-base-100 border border-base-200 w-64 text-sm">
+                  <h4 class="font-bold mb-2">Painel de Acesso</h4>
+                  <p>Dropdowns podem carregar qualquer tipo de conteúdo estruturado dentro de cards.</p>
+                </div>
+              </div>
+
+              <div class="dropdown dropdown-hover dropdown-top">
+                <label tabindex="0" class="btn btn-outline btn-sm">Abrir para Cima</label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-200">
+                  <li><a>Opção 1</a></li>
+                  <li><a>Opção 2</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-dropdown-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-dropdown')">Copiar</button>
+                <pre><code id="code-dropdown" class="code-editor block text-xs">
+&lt;!-- Abre no hover --&gt;
+&lt;div class="dropdown dropdown-hover"&gt;
+  &lt;label tabindex="0" class="btn"&gt;Passar o Mouse&lt;/label&gt;
+  &lt;ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"&gt;
+    &lt;li&gt;&lt;a&gt;Item de Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;Item de Link 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Alinhado à direita e com card --&gt;
+&lt;div class="dropdown dropdown-end"&gt;
+  &lt;label tabindex="0" class="btn"&gt;Clique Para Abrir&lt;/label&gt;
+  &lt;div tabindex="0" class="dropdown-content card card-compact p-4 shadow bg-base-100 w-64"&gt;
+    &lt;p&gt;Qualquer conteúdo estruturado.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
                 </code></pre>
@@ -654,95 +1356,28 @@
           </div>
         </section>
 
-        <!-- INTERACTIVE OVERLAYS SECTION -->
-        <section id="overlays" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Overlays Interativos</h3>
+        <!-- MODAL SECTION -->
+        <section id="modal" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Modal</h3>
+            <span class="badge badge-outline">5 Classes</span>
+          </div>
           
           <div class="card card-bordered p-6 mb-4 bg-base-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              <!-- Modals & Toasts -->
-              <div class="flex flex-col gap-4">
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Modals (Caixas de Diálogo)</h4>
-                <div class="flex flex-wrap gap-2 mb-4">
-                  <!-- CSS trigger -->
-                  <label for="demo-modal" class="btn btn-primary btn-sm">Modal via CSS</label>
-                  <!-- JS Trigger -->
-                  <button class="btn btn-outline btn-primary btn-sm" onclick="AHMAR.openModal('js-modal')">Modal via JS</button>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Toast Alerts (Mensagens Temporárias)</h4>
-                <div class="flex flex-wrap gap-2">
-                  <button class="btn btn-info btn-sm" onclick="AHMAR.toast('Informações salvas com sucesso!', 'info')">Toast Info</button>
-                  <button class="btn btn-success btn-sm" onclick="AHMAR.toast('Tudo correto por aqui!', 'success')">Toast Success</button>
-                  <button class="btn btn-warning btn-sm" onclick="AHMAR.toast('Verifique suas permissões de rede.', 'warning')">Toast Warning</button>
-                  <button class="btn btn-error btn-sm" onclick="AHMAR.toast('Falha ao autenticar token de sessão.', 'error')">Toast Error</button>
-                </div>
-              </div>
-
-              <!-- Tooltips, Dropdowns & Collapse -->
-              <div class="flex flex-col gap-4">
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Tooltips (Dicas flutuantes)</h4>
-                <div class="flex flex-wrap gap-4 mb-4">
-                  <div class="tooltip tooltip-top" data-tip="Olá na parte superior!">
-                    <button class="btn btn-neutral btn-sm">Tooltip Top</button>
-                  </div>
-                  <div class="tooltip tooltip-bottom" data-tip="Olá na parte inferior!">
-                    <button class="btn btn-neutral btn-sm">Tooltip Bottom</button>
-                  </div>
-                  <div class="tooltip tooltip-left" data-tip="Olá na esquerda!">
-                    <button class="btn btn-neutral btn-sm">Tooltip Left</button>
-                  </div>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Dropdowns (Menus suspensos)</h4>
-                <div class="flex flex-wrap gap-2 mb-4">
-                  <div class="dropdown dropdown-hover">
-                    <label tabindex="0" class="btn btn-outline btn-sm">Passar o Mouse</label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 border border-base-200">
-                      <li><a>Item de Link 1</a></li>
-                      <li><a>Item de Link 2</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-outline btn-sm">Clique Para Abrir</label>
-                    <div tabindex="0" class="dropdown-content card card-compact p-4 shadow bg-base-100 border border-base-200 w-64 text-sm">
-                      <h4 class="font-bold mb-2">Painel de Acesso</h4>
-                      <p>Dropdowns podem carregar qualquer tipo de conteúdo estruturado dentro de cards.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 font-bold">Sanfonas (Collapse / Accordions)</h4>
-                <div class="flex flex-col gap-2">
-                  <div class="collapse bg-base-200 border border-base-300">
-                    <input type="checkbox" />
-                    <div class="collapse-title text-sm font-semibold">Como funciona o pure CSS Collapse?</div>
-                    <div class="collapse-content text-sm">
-                      <p>Utilizamos a pseudo-classe <code>:checked</code> de um checkbox oculto para expandir e colapsar o contêiner dinamicamente com <code>grid-template-rows</code>.</p>
-                    </div>
-                  </div>
-                  <div class="collapse bg-base-200 border border-base-300">
-                    <input type="checkbox" />
-                    <div class="collapse-title text-sm font-semibold">Posso ter múltiplas abas abertas?</div>
-                    <div class="collapse-content text-sm">
-                      <p>Sim! Ao utilizar checkboxes individuais, cada componente age de forma autônoma permitindo manter vários expandidos de uma vez.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+            <p class="text-sm opacity-80 mb-4">Dois modos de abertura: via CSS puro (checkbox) ou via JavaScript helper (<code>AHMAR.openModal</code>).</p>
+            <div class="flex flex-wrap gap-2">
+              <label for="demo-modal" class="btn btn-primary btn-sm">Modal via CSS</label>
+              <button class="btn btn-outline btn-primary btn-sm" onclick="AHMAR.openModal('js-modal')">Modal via JS</button>
             </div>
           </div>
 
           <div class="collapse bg-base-200">
-            <input type="checkbox" id="code-overlay-toggle" />
-            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Modal e Dropdown)</div>
+            <input type="checkbox" id="code-modal-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
             <div class="collapse-content">
               <div class="code-container p-4">
-                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-overlay')">Copiar</button>
-                <pre><code id="code-overlay" class="code-editor block text-xs">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-modal')">Copiar</button>
+                <pre><code id="code-modal" class="code-editor block text-xs">
 &lt;!-- Modal Pure CSS --&gt;
 &lt;input type="checkbox" id="demo-modal" class="modal-toggle" /&gt;
 &lt;div class="modal"&gt;
@@ -755,8 +1390,59 @@
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;!-- Tooltip --&gt;
-&lt;div class="tooltip" data-tip="Mensagem"&gt;
+&lt;!-- Modal via JS --&gt;
+&lt;div id="js-modal" class="modal"&gt;
+  &lt;div class="modal-box"&gt;
+    &lt;h3 class="font-bold text-lg"&gt;Modal via Javascript&lt;/h3&gt;
+    &lt;div class="modal-action"&gt;
+      &lt;button class="btn" data-close-modal&gt;Fechar&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;AHMAR.openModal('js-modal')&lt;/script&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOOLTIP SECTION -->
+        <section id="tooltip" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Tooltip</h3>
+            <span class="badge badge-outline">6 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="flex flex-wrap gap-4 items-center">
+              <div class="tooltip tooltip-top" data-tip="Olá na parte superior!">
+                <button class="btn btn-neutral btn-sm">Tooltip Top</button>
+              </div>
+              <div class="tooltip tooltip-bottom" data-tip="Olá na parte inferior!">
+                <button class="btn btn-neutral btn-sm">Tooltip Bottom</button>
+              </div>
+              <div class="tooltip tooltip-left" data-tip="Olá na esquerda!">
+                <button class="btn btn-neutral btn-sm">Tooltip Left</button>
+              </div>
+              <div class="tooltip tooltip-right" data-tip="Olá na direita!">
+                <button class="btn btn-neutral btn-sm">Tooltip Right</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-tooltip-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-tooltip')">Copiar</button>
+                <pre><code id="code-tooltip" class="code-editor block text-xs">
+&lt;div class="tooltip tooltip-top" data-tip="Mensagem"&gt;
+  &lt;button class="btn"&gt;Hover me&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Direções: tooltip-top / tooltip-bottom / tooltip-left / tooltip-right --&gt;
+&lt;div class="tooltip" data-tip="Apenas hover, sem direção"&gt;
   &lt;button class="btn"&gt;Hover me&lt;/button&gt;
 &lt;/div&gt;
                 </code></pre>
@@ -765,74 +1451,224 @@
           </div>
         </section>
 
-        <!-- LOADING & PROGRESS SECTION -->
-        <section id="loading" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Loading, Progresso & Skeleton</h3>
-
+        <!-- COLLAPSE SECTION -->
+        <section id="collapse" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Collapse (Sanfonas)</h3>
+            <span class="badge badge-outline">4 Classes</span>
+          </div>
+          
           <div class="card card-bordered p-6 mb-4 bg-base-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              <!-- Spinners -->
-              <div class="flex flex-col gap-4">
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Spinners (Carregamento)</h4>
-                <div class="flex flex-wrap items-center gap-4">
-                  <span class="loading"></span>
-                  <span class="loading loading-sm"></span>
-                  <span class="loading loading-md"></span>
-                  <span class="loading loading-lg"></span>
-                </div>
-                <div class="flex flex-wrap items-center gap-4">
-                  <span class="loading loading-primary"></span>
-                  <span class="loading loading-secondary"></span>
-                  <span class="loading loading-accent"></span>
-                  <span class="loading loading-neutral"></span>
-                  <span class="loading loading-success"></span>
-                  <span class="loading loading-warning"></span>
-                  <span class="loading loading-error"></span>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Variantes</h4>
-                <div class="flex flex-wrap items-center gap-5">
-                  <span class="loading loading-dots"></span>
-                  <span class="loading loading-bars"></span>
-                  <span class="loading loading-ball loading-primary"></span>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Dentro de Botões</h4>
-                <div class="flex flex-wrap items-center gap-3">
-                  <button class="btn btn-primary loading">Carregando</button>
-                  <button class="btn btn-outline btn-sm loading">Salvando...</button>
-                  <button class="btn btn-circle btn-sm loading"></button>
+            <div class="flex flex-col gap-2">
+              <div class="collapse bg-base-200 border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-sm font-semibold">Como funciona o pure CSS Collapse?</div>
+                <div class="collapse-content text-sm">
+                  <p>Utilizamos a pseudo-classe <code>:checked</code> de um checkbox oculto para expandir e colapsar o contêiner dinamicamente com <code>grid-template-rows</code>.</p>
                 </div>
               </div>
-
-              <!-- Progress -->
-              <div class="flex flex-col gap-4">
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Progress Bars</h4>
-                <div class="flex flex-col gap-3">
-                  <progress class="progress" value="40" max="100"></progress>
-                  <progress class="progress progress-primary" value="70" max="100"></progress>
-                  <progress class="progress progress-secondary" value="55" max="100"></progress>
-                  <progress class="progress progress-accent" value="80" max="100"></progress>
-                  <progress class="progress progress-success" value="90" max="100"></progress>
-                  <progress class="progress progress-warning" value="60" max="100"></progress>
-                  <progress class="progress progress-error" value="30" max="100"></progress>
-                </div>
-
-                <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mt-2 mb-2">Tamanhos & Indeterminado</h4>
-                <div class="flex flex-col gap-3">
-                  <progress class="progress progress-xs" value="25" max="100"></progress>
-                  <progress class="progress progress-sm progress-primary" value="50" max="100"></progress>
-                  <progress class="progress progress-lg progress-accent" value="75" max="100"></progress>
-                  <progress class="progress progress-xl progress-error" value="100" max="100"></progress>
-                  <progress class="progress progress-primary progress-indeterminate"></progress>
+              <div class="collapse bg-base-200 border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-sm font-semibold">Posso ter múltiplas abas abertas?</div>
+                <div class="collapse-content text-sm">
+                  <p>Sim! Ao utilizar checkboxes individuais, cada componente age de forma autônoma permitindo manter vários expandidos de uma vez.</p>
                 </div>
               </div>
+              <div class="collapse collapse-open bg-base-200 border border-base-300">
+                <div class="collapse-title text-sm font-semibold">Aberto por padrão (collapse-open)</div>
+                <div class="collapse-content text-sm">
+                  <p>Adicione a classe <code>collapse-open</code> para iniciar expandido sem precisar de checkbox.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-collapse-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-collapse')">Copiar</button>
+                <pre><code id="code-collapse" class="code-editor block text-xs">
+&lt;div class="collapse bg-base-200"&gt;
+  &lt;input type="checkbox" /&gt;
+  &lt;div class="collapse-title text-sm font-semibold"&gt;Título&lt;/div&gt;
+  &lt;div class="collapse-content text-sm"&gt;
+    &lt;p&gt;Conteúdo expansível via :checked.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Iniciar expandido sem checkbox --&gt;
+&lt;div class="collapse collapse-open bg-base-200"&gt;
+  &lt;div class="collapse-title"&gt;Já aberto&lt;/div&gt;
+  &lt;div class="collapse-content"&gt;&lt;p&gt;Conteúdo.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOAST SECTION -->
+        <section id="toast" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Toast (Notificações)</h3>
+            <span class="badge badge-outline">7 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <p class="text-sm opacity-80 mb-4">Notificações temporárias controladas pelo helper <code>AHMAR.toast('mensagem', 'tipo')</code>.</p>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn btn-info btn-sm" onclick="AHMAR.toast('Informações salvas com sucesso!', 'info')">Toast Info</button>
+              <button class="btn btn-success btn-sm" onclick="AHMAR.toast('Tudo correto por aqui!', 'success')">Toast Success</button>
+              <button class="btn btn-warning btn-sm" onclick="AHMAR.toast('Verifique suas permissões de rede.', 'warning')">Toast Warning</button>
+              <button class="btn btn-error btn-sm" onclick="AHMAR.toast('Falha ao autenticar token de sessão.', 'error')">Toast Error</button>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-toast-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-toast')">Copiar</button>
+                <pre><code id="code-toast" class="code-editor block text-xs">
+&lt;!-- Posição padrão (bottom-right) --&gt;
+&lt;div class="toast toast-bottom toast-end"&gt;
+  &lt;div class="alert alert-success"&gt;
+    &lt;span&gt;Mensagem salva!&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Exibição via JS helper --&gt;
+&lt;button class="btn" onclick="AHMAR.toast('Conteúdo!', 'success')"&gt;
+  Disparar Toast
+&lt;/button&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LOADING SECTION -->
+        <section id="loading" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Loading (Spinners)</h3>
+            <span class="badge badge-outline">16 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Tamanhos</h4>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <span class="loading"></span>
+              <span class="loading loading-xs"></span>
+              <span class="loading loading-sm"></span>
+              <span class="loading loading-md"></span>
+              <span class="loading loading-lg"></span>
             </div>
 
-            <!-- Skeletons -->
-            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4 mt-8">Skeletons (Placeholders de Carregamento)</h4>
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Cores</h4>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <span class="loading loading-primary"></span>
+              <span class="loading loading-secondary"></span>
+              <span class="loading loading-accent"></span>
+              <span class="loading loading-neutral"></span>
+              <span class="loading loading-success"></span>
+              <span class="loading loading-warning"></span>
+              <span class="loading loading-error"></span>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Variantes</h4>
+            <div class="flex flex-wrap items-center gap-5 mb-6">
+              <span class="loading loading-dots"></span>
+              <span class="loading loading-bars"></span>
+              <span class="loading loading-ball loading-primary"></span>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Dentro de Botões</h4>
+            <div class="flex flex-wrap items-center gap-3">
+              <button class="btn btn-primary loading">Carregando</button>
+              <button class="btn btn-outline btn-sm loading">Salvando...</button>
+              <button class="btn btn-circle btn-sm loading"></button>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-loading-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-loading')">Copiar</button>
+                <pre><code id="code-loading" class="code-editor block text-xs">
+&lt;!-- Spinner --&gt;
+&lt;span class="loading loading-lg loading-primary"&gt;&lt;/span&gt;
+&lt;span class="loading loading-dots"&gt;&lt;/span&gt;
+
+&lt;!-- Botão em estado de carregamento --&gt;
+&lt;button class="btn btn-primary loading"&gt;Carregando&lt;/button&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROGRESS SECTION -->
+        <section id="progress" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Progress (Barras)</h3>
+            <span class="badge badge-outline">15 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Cores</h4>
+            <div class="flex flex-col gap-3 mb-6">
+              <progress class="progress" value="40" max="100"></progress>
+              <progress class="progress progress-primary" value="70" max="100"></progress>
+              <progress class="progress progress-secondary" value="55" max="100"></progress>
+              <progress class="progress progress-accent" value="80" max="100"></progress>
+              <progress class="progress progress-success" value="90" max="100"></progress>
+              <progress class="progress progress-warning" value="60" max="100"></progress>
+              <progress class="progress progress-error" value="30" max="100"></progress>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Tamanhos & Indeterminado</h4>
+            <div class="flex flex-col gap-3">
+              <progress class="progress progress-xs" value="25" max="100"></progress>
+              <progress class="progress progress-sm progress-primary" value="50" max="100"></progress>
+              <progress class="progress progress-lg progress-accent" value="75" max="100"></progress>
+              <progress class="progress progress-xl progress-error" value="100" max="100"></progress>
+              <progress class="progress progress-primary progress-indeterminate"></progress>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-progress-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-progress')">Copiar</button>
+                <pre><code id="code-progress" class="code-editor block text-xs">
+&lt;progress class="progress progress-primary" value="70" max="100"&gt;&lt;/progress&gt;
+
+&lt;!-- Tamanhos: progress-xs / sm / md / lg / xl --&gt;
+&lt;progress class="progress progress-sm progress-accent" value="50" max="100"&gt;&lt;/progress&gt;
+
+&lt;!-- Sem valor definido (indeterminado) --&gt;
+&lt;progress class="progress progress-primary progress-indeterminate"&gt;&lt;/progress&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKELETON SECTION -->
+        <section id="skeleton" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Skeleton (Placeholders)</h3>
+            <span class="badge badge-outline">1 Classe</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
             <div class="flex flex-wrap gap-8 items-start">
               <div class="flex flex-col gap-3 w-72">
                 <div class="flex items-center gap-3">
@@ -849,26 +1685,15 @@
           </div>
 
           <div class="collapse bg-base-200">
-            <input type="checkbox" id="code-loading-toggle" />
-            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Loading, Progress & Skeleton)</div>
+            <input type="checkbox" id="code-skeleton-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
             <div class="collapse-content">
               <div class="code-container p-4">
-                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-loading')">Copiar</button>
-                <pre><code id="code-loading" class="code-editor block text-xs">
-&lt;!-- Spinner --&gt;
-&lt;span class="loading loading-lg loading-primary"&gt;&lt;/span&gt;
-&lt;span class="loading loading-dots"&gt;&lt;/span&gt;
-
-&lt;!-- Botão em estado de carregamento --&gt;
-&lt;button class="btn btn-primary loading"&gt;Carregando&lt;/button&gt;
-
-&lt;!-- Barra de progresso --&gt;
-&lt;progress class="progress progress-primary" value="70" max="100"&gt;&lt;/progress&gt;
-&lt;progress class="progress progress-primary progress-indeterminate"&gt;&lt;/progress&gt;
-
-&lt;!-- Skeleton --&gt;
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-skeleton')">Copiar</button>
+                <pre><code id="code-skeleton" class="code-editor block text-xs">
 &lt;div class="skeleton rounded-full h-14 w-14"&gt;&lt;/div&gt;
 &lt;div class="skeleton h-32 w-full"&gt;&lt;/div&gt;
+&lt;div class="skeleton h-6 w-2/3"&gt;&lt;/div&gt;
                 </code></pre>
               </div>
             </div>
@@ -877,12 +1702,13 @@
 
         <!-- TABLES SECTION -->
         <section id="tables" class="mb-16">
-          <h3 class="text-2xl font-bold mb-4">Tabelas (Tables)</h3>
-
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Tabelas (Tables)</h3>
+            <span class="badge badge-outline">9 Classes</span>
+          </div>
+          
           <div class="card card-bordered p-6 mb-4 bg-base-100">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-              <!-- Basic -->
               <div>
                 <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Básica</h4>
                 <div class="overflow-x-auto rounded-box border border-base-300">
@@ -928,7 +1754,6 @@
                 </div>
               </div>
 
-              <!-- Zebra & Hover -->
               <div>
                 <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2">Zebra & Hover</h4>
                 <div class="overflow-x-auto rounded-box border border-base-300">
@@ -975,10 +1800,8 @@
                   </table>
                 </div>
               </div>
-
             </div>
 
-            <!-- Sizes -->
             <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 mt-8">Tamanhos</h4>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div class="overflow-x-auto rounded-box border border-base-300">
@@ -1019,7 +1842,6 @@
               </div>
             </div>
 
-            <!-- Pinned -->
             <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-2 mt-8">Linha fixa (table-pin-rows)</h4>
             <div class="overflow-y-auto rounded-box border border-base-300" style="max-height: 12rem">
               <table class="table table-pin-rows">
@@ -1040,7 +1862,7 @@
 
           <div class="collapse bg-base-200">
             <input type="checkbox" id="code-tables-toggle" />
-            <div class="collapse-title text-sm font-semibold">Exibir Código HTML (Tabelas)</div>
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
             <div class="collapse-content">
               <div class="code-container p-4">
                 <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-tables')">Copiar</button>
@@ -1065,6 +1887,339 @@
 &lt;div class="overflow-y-auto" style="max-height: 12rem"&gt;
   &lt;table class="table table-pin-rows"&gt;...&lt;/table&gt;
 &lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AVATAR SECTION -->
+        <section id="avatar" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Avatar</h3>
+            <span class="badge badge-outline">13 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Tamanhos</h4>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <div class="avatar avatar-xs">
+                <div class="avatar-placeholder">A</div>
+              </div>
+              <div class="avatar avatar-sm">
+                <div class="avatar-placeholder">B</div>
+              </div>
+              <div class="avatar avatar-md">
+                <div class="avatar-placeholder">C</div>
+              </div>
+              <div class="avatar avatar-lg">
+                <div class="avatar-placeholder">D</div>
+              </div>
+              <div class="avatar avatar-xl">
+                <div class="avatar-placeholder">E</div>
+              </div>
+              <div class="avatar avatar-2xl">
+                <div class="avatar-placeholder">F</div>
+              </div>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Status</h4>
+            <div class="flex flex-wrap items-center gap-4 mb-6">
+              <div class="avatar avatar-online">
+                <div class="avatar-placeholder">O</div>
+              </div>
+              <div class="avatar avatar-offline">
+                <div class="avatar-placeholder">F</div>
+              </div>
+              <div class="avatar avatar-error">
+                <div class="avatar-placeholder">E</div>
+              </div>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Grupo</h4>
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="avatar-group -space-x-3">
+                <div class="avatar avatar-md">
+                  <div class="avatar-placeholder">AL</div>
+                </div>
+                <div class="avatar avatar-md">
+                  <div class="avatar-placeholder">BR</div>
+                </div>
+                <div class="avatar avatar-md">
+                  <div class="avatar-placeholder">CA</div>
+                </div>
+                <div class="avatar avatar-md avatar-placeholder">
+                  <div class="avatar-placeholder">+8</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-avatar-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-avatar')">Copiar</button>
+                <pre><code id="code-avatar" class="code-editor block text-xs">
+&lt;!-- Placeholder com iniciais --&gt;
+&lt;div class="avatar avatar-lg"&gt;
+  &lt;div class="avatar-placeholder"&gt;JD&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Com imagem --&gt;
+&lt;div class="avatar avatar-lg avatar-online"&gt;
+  &lt;img src="foto.jpg" alt="Usuário"&gt;
+&lt;/div&gt;
+
+&lt;!-- Grupo empilhado --&gt;
+&lt;div class="avatar-group"&gt;
+  &lt;div class="avatar"&gt;&lt;div class="avatar-placeholder"&gt;AL&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="avatar"&gt;&lt;div class="avatar-placeholder"&gt;BR&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="avatar"&gt;&lt;div class="avatar-placeholder"&gt;CA&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- KBD SECTION -->
+        <section id="kbd" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Kbd (Teclas)</h3>
+            <span class="badge badge-outline">5 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Tamanhos</h4>
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <kbd class="kbd kbd-xs">A</kbd>
+              <kbd class="kbd kbd-sm">A</kbd>
+              <kbd class="kbd kbd-md">A</kbd>
+              <kbd class="kbd kbd-lg">A</kbd>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Exemplos</h4>
+            <div class="flex flex-wrap items-center gap-2">
+              <kbd class="kbd">Ctrl</kbd>
+              <span class="opacity-60">+</span>
+              <kbd class="kbd">Shift</kbd>
+              <span class="opacity-60">+</span>
+              <kbd class="kbd">S</kbd>
+              <span class="opacity-60 ml-2">Salvar rapidamente</span>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-kbd-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-kbd')">Copiar</button>
+                <pre><code id="code-kbd" class="code-editor block text-xs">
+&lt;kbd class="kbd"&gt;Ctrl&lt;/kbd&gt;
+&lt;kbd class="kbd kbd-lg"&gt;Shift&lt;/kbd&gt;
+
+&lt;!-- Tamanhos: kbd-xs / kbd-sm / kbd-md / kbd-lg --&gt;
+&lt;kbd class="kbd kbd-xs"&gt;A&lt;/kbd&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INDICATOR SECTION -->
+        <section id="indicator" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Indicator (Badges de Posição)</h3>
+            <span class="badge badge-outline">8 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <p class="text-sm opacity-80 mb-4">Posicione badges ou elementos sobre qualquer conteúdo combinando os eixos horizontal (start/center/end) e vertical (top/middle/bottom).</p>
+            <div class="flex flex-wrap items-start gap-20">
+              <div class="indicator">
+                <span class="indicator-item badge badge-primary badge-sm">NOVO</span>
+                <div class="flex w-40 h-24 items-center justify-center bg-base-200 border border-base-300 rounded-box">Top + End<br />(padrão)</div>
+              </div>
+              <div class="indicator indicator-start">
+                <span class="indicator-item badge badge-secondary badge-sm">Start</span>
+                <div class="flex w-40 h-24 items-center justify-center bg-base-200 border border-base-300 rounded-box">Top + Start</div>
+              </div>
+              <div class="indicator indicator-bottom">
+                <span class="indicator-item badge badge-success badge-sm">Bottom</span>
+                <div class="flex w-40 h-24 items-center justify-center bg-base-200 border border-base-300 rounded-box">End + Bottom</div>
+              </div>
+              <div class="indicator indicator-start indicator-middle">
+                <span class="indicator-item badge badge-warning badge-sm">Start + Middle</span>
+                <div class="flex w-40 h-24 items-center justify-center bg-base-200 border border-base-300 rounded-box">Esquerda<br />centrada</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-indicator-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-indicator')">Copiar</button>
+                <pre><code id="code-indicator" class="code-editor block text-xs">
+&lt;div class="indicator"&gt;
+  &lt;span class="indicator-item badge badge-primary"&gt;NOVO&lt;/span&gt;
+  &lt;div class="flex w-24 h-24 items-center justify-center bg-base-200 rounded-box"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Eixos compostos --&gt;
+&lt;div class="indicator indicator-start indicator-bottom"&gt;
+  &lt;span class="indicator-item badge badge-secondary"&gt;Início + Base&lt;/span&gt;
+  &lt;div class="flex w-24 h-24 items-center justify-center rounded-box"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DIVIDER SECTION -->
+        <section id="divider" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Divider (Divisores)</h3>
+            <span class="badge badge-outline">2 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Horizontal</h4>
+            <div class="mb-6">
+              <div class="divider">Com Texto</div>
+              <div class="divider divider-horizontal hidden md:flex"></div>
+              <div class="divider">Seção</div>
+            </div>
+
+            <h4 class="text-sm font-semibold uppercase tracking-wider opacity-60 mb-4">Vertical (divider-horizontal)</h4>
+            <div class="flex items-stretch gap-0 h-20">
+              <div class="flex-1 flex items-center justify-center text-sm opacity-80">Coluna A</div>
+              <div class="divider divider-horizontal"></div>
+              <div class="flex-1 flex items-center justify-center text-sm opacity-80">Coluna B</div>
+              <div class="divider divider-horizontal"></div>
+              <div class="flex-1 flex items-center justify-center text-sm opacity-80">Coluna C</div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-divider-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-divider')">Copiar</button>
+                <pre><code id="code-divider" class="code-editor block text-xs">
+&lt;!-- Divisor com rótulo --&gt;
+&lt;div class="divider"&gt;Conteúdo&lt;/div&gt;
+
+&lt;!-- Divisor vertical --&gt;
+&lt;div class="flex items-stretch h-20"&gt;
+  &lt;div class="flex-1 flex items-center"&gt;Coluna A&lt;/div&gt;
+  &lt;div class="divider divider-horizontal"&gt;&lt;/div&gt;
+  &lt;div class="flex-1 flex items-center"&gt;Coluna B&lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Hero (Banner de Destaque)</h3>
+            <span class="badge badge-outline">2 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <div class="hero rounded-box overflow-hidden bg-neutral text-neutral-content" style="min-height: 20rem">
+              <div class="hero-content text-center p-8">
+                <div>
+                  <h1 class="text-4xl font-extrabold mb-2">AHMAR Design</h1>
+                  <p class="opacity-80 mb-6 max-w-xl">Banners de destaque prontos para landing pages, com estrutura em grid e conteúdo centralizado.</p>
+                  <button class="btn btn-primary">Começar Agora</button>
+                  <button class="btn btn-outline btn-primary ml-2">Saiba Mais</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-hero-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-hero')">Copiar</button>
+                <pre><code id="code-hero" class="code-editor block text-xs">
+&lt;div class="hero bg-neutral text-neutral-content" style="min-height: 20rem"&gt;
+  &lt;div class="hero-content text-center"&gt;
+    &lt;div&gt;
+      &lt;h1 class="text-4xl font-extrabold"&gt;Título&lt;/h1&gt;
+      &lt;p class="opacity-80"&gt;Descrição do destaque...&lt;/p&gt;
+      &lt;button class="btn btn-primary"&gt;Chamada para Ação&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER SECTION -->
+        <section id="footer-component" class="mb-16">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-bold">Footer (Rodapé)</h3>
+            <span class="badge badge-outline">2 Classes</span>
+          </div>
+          
+          <div class="card card-bordered p-6 mb-4 bg-base-100">
+            <footer class="footer p-6 rounded-box bg-base-200 border border-base-300 text-sm">
+              <div>
+                <span class="footer-title">Produto</span>
+                <a href="#intro" class="link link-hover">Instalação</a>
+                <a href="#themes" class="link link-hover">Temas</a>
+                <a href="#components" class="link link-hover">Componentes</a>
+              </div>
+              <div>
+                <span class="footer-title">Recursos</span>
+                <a href="https://daisyui.com" target="_blank" class="link link-hover">Inspirado no Daisy UI</a>
+                <a href="#" class="link link-hover">Vanilla CSS</a>
+                <a href="#" class="link link-hover">Sem Dependências</a>
+              </div>
+              <div>
+                <span class="footer-title">Licença</span>
+                <p class="opacity-80">AHMAR Design &copy; 2026 - MIT License.</p>
+              </div>
+            </footer>
+          </div>
+
+          <div class="collapse bg-base-200">
+            <input type="checkbox" id="code-footer-toggle" />
+            <div class="collapse-title text-sm font-semibold">Exibir Código HTML</div>
+            <div class="collapse-content">
+              <div class="code-container p-4">
+                <button class="btn btn-xs btn-outline mb-2 float-right" onclick="copyCode('code-footer')">Copiar</button>
+                <pre><code id="code-footer" class="code-editor block text-xs">
+&lt;footer class="footer p-10 bg-neutral text-neutral-content"&gt;
+  &lt;div&gt;
+    &lt;span class="footer-title"&gt;Produto&lt;/span&gt;
+    &lt;a href="#" class="link link-hover"&gt;Instalação&lt;/a&gt;
+    &lt;a href="#" class="link link-hover"&gt;Temas&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;span class="footer-title"&gt;Recursos&lt;/span&gt;
+    &lt;a href="#" class="link link-hover"&gt;Vanilla CSS&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;span class="footer-title"&gt;Licença&lt;/span&gt;
+    &lt;p&gt;AHMAR Design &copy; 2026 - MIT License.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
                 </code></pre>
               </div>
             </div>
@@ -1272,3 +2427,4 @@
   </script>
 </body>
 </html>
+
