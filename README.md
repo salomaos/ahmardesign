@@ -118,8 +118,8 @@ A biblioteca é **agnóstica de framework**: os componentes são CSS puro e o `A
 O `package.json` expõe o CSS e o JS através de subcaminhos (funciona com Vite e bundlers que respeitam o mapa de `exports`):
 
 ```js
-import 'ahmardesign/ahmardesign.css';
-import 'ahmardesign/ahmardesign.js'; // expõe window.AHMAR e já roda AHMAR.init()
+import '@ahmartecnologias/ahmardesign/ahmardesign.css';
+import '@ahmartecnologias/ahmardesign/ahmardesign.js'; // expõe window.AHMAR e já roda AHMAR.init()
 ```
 
 ### SPA: elementos renderizados dinamicamente
@@ -142,11 +142,11 @@ O `ahmardesign.js` executa `AHMAR.init()` **imediatamente ao ser carregado**, e 
 // +page.svelte
 import { onMount } from 'svelte';
 onMount(async () => {
-  await import('ahmardesign/ahmardesign.js');
+  await import('@ahmartecnologias/ahmardesign/ahmardesign.js');
 });
 ```
 
-- **Next.js**: use `import('ahmardesign/ahmardesign.js')` dentro de um `useEffect`, ou o componente `<Script>` com `strategy="afterInteractive"`.
+- **Next.js**: use `import('@ahmartecnologias/ahmardesign/ahmardesign.js')` dentro de um `useEffect`, ou o componente `<Script>` com `strategy="afterInteractive"`.
 
 O **CSS** pode (e deve) ser importado normalmente, mesmo no servidor — é só estilo.
 

@@ -1,5 +1,5 @@
 {
-  "name": "ahmardesign",
+  "name": "@ahmartecnologias/ahmardesign",
   "version": "1.0.0",
   "description": "AHMAR Design - lightweight vanilla CSS component library inspired by Daisy UI. Pure CSS, no framework, 10 themes.",
   "main": "src/js/ahmardesign.js",
@@ -13,6 +13,17 @@
     "./ahmardesign.js": "./src/js/ahmardesign.js",
     "./package.json": "./package.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salomaos/ahmardesign.git"
+  },
+  "bugs": {
+    "url": "https://github.com/salomaos/ahmardesign/issues"
+  },
+  "homepage": "https://github.com/salomaos/ahmardesign#readme",
   "sideEffects": true,
   "files": [
     "src/css/ahmardesign.css",
