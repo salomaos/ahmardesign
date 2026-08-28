@@ -163,6 +163,43 @@ window.addEventListener('ahmar-theme-change', (e) => {
 
 ---
 
+## Espaçamento entre Componentes
+
+Os componentes **não possuem margem padrão** — o espaçamento é sempre responsabilidade de quem consome, de forma explícita e portável (sem resets em projetos). Use `gap` (flex/grid) ou a utilitária `.space-y-*`:
+
+- **Linha**: `.flex items-center gap-2` (ou `gap-N` com qualquer medida do scale).
+- **Coluna / stack**: `flex flex-col gap-3`, ou `.space-y-3` para empilhar **irmãos que não são flex** (ex.: parágrafos, blocos, campos soltos).
+- **Grid**: `grid gap-4 grid-cols-*`.
+
+```html
+<!-- Linha: use gap -->
+<div class="flex items-center gap-2">
+  <button class="btn btn-primary">Salvar</button>
+  <button class="btn btn-ghost">Cancelar</button>
+</div>
+
+<!-- Coluna flex: use gap -->
+<form class="flex flex-col gap-3">
+  <input class="input" placeholder="Nome">
+  <input class="input" placeholder="E-mail">
+  <textarea class="textarea" placeholder="Mensagem"></textarea>
+  <button class="btn btn-primary btn-block">Enviar</button>
+</form>
+
+<!-- Irmãos não-flex (blocos): use space-y -->
+<section class="space-y-4">
+  <p>Primeiro parágrafo.</p>
+  <p>Segundo parágrafo.</p>
+  <div class="alert alert-info">Aviso.</div>
+</section>
+```
+
+`.space-y-*` aplica `margin-top` entre irmãos diretamente adjacentes (`> * + *`), sem criar margem no primeiro nem no último elemento. Para listas sem marcador, use `.list-none`.
+
+> Escolha sempre **um** mecanismo por container: `gap` **ou** `.space-y-*`, nunca os dois juntos — caso contrário o espaçamento soma (duplica).
+
+---
+
 ## Mecanismo de Temas
 
 A biblioteca utiliza variáveis CSS reativas. O tema é determinado pelo atributo `data-theme` na tag `body`.
@@ -262,8 +299,8 @@ O script de compilação gera automaticamente classes utilitárias para facilita
 
 | Família | Exemplos |
 | :--- | :--- |
-| **Espaçamento** | `p-4`, `px-2`, `py-1.5`, `m-auto`, `mt-8`, `gap-4` |
-| **Exibição & Layout** | `block`, `flex`, `grid`, `hidden`, `flex-row`, `items-center`, `justify-between`, `flex-1`, `grid-cols-12`, `col-span-4` |
+| **Espaçamento** | `p-4`, `px-2`, `py-1.5`, `m-auto`, `mt-8`, `gap-4`, `space-y-4` |
+| **Exibição & Layout** | `block`, `flex`, `grid`, `hidden`, `flex-row`, `items-center`, `justify-between`, `flex-1`, `grid-cols-12`, `col-span-4`, `list-none` |
 | **Dimensões** | `w-64`, `w-full`, `w-1/2`, `w-screen`, `h-screen`, `min-h-screen`, `min-w-full`, `max-w-2xl`, `max-h-screen` |
 | **Posicionamento** | `static`, `fixed`, `absolute`, `relative`, `sticky`, `top-0`, `top-16`, `z-50`, `float-right` |
 | **Tipografia** | `text-sm`–`text-6xl`, `font-bold`, `text-center`, `tracking-tight`, `leading-none`, `uppercase`, `truncate`, `break-words`, `whitespace-nowrap` |

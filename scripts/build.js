@@ -342,6 +342,12 @@ function generateRules(prefix = '') {
     css += `.${p}gap-${escapeCssValue(valKey)} { gap: ${valVal} !important; }\n`;
   }
 
+  // 9.5. Vertical stack (space-y-N: margin-top between adjacent children)
+  for (const [valKey, valVal] of Object.entries(spacingValues)) {
+    if (valKey === 'auto') continue;
+    css += `.${p}space-y-${escapeCssValue(valKey)} > * + * { margin-top: ${valVal} !important; }\n`;
+  }
+
   // 10. Typography
   for (const [key, val] of Object.entries(textSizes)) {
     css += `.${p}${key} { font-size: ${val} !important; }\n`;

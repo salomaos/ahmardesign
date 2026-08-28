@@ -30,6 +30,12 @@
 .pointer-events-none { pointer-events: none; }
 .pointer-events-auto { pointer-events: auto; }
 
+/* List reset */
+.list-none {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Overflow */
 .overflow-auto { overflow: auto; }
 .overflow-hidden { overflow: hidden; }
