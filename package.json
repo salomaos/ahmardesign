@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "build": "node scripts/build.js",
-    "dev": "node scripts/build.js && vite",
+    "start": "node scripts/build.js && vite",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
