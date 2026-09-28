@@ -106,7 +106,13 @@ p:last-child {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  /* NOTE: the transition override excludes SVG content. Diagram libraries
+     (e.g. Mermaid) rely on CSS transitions internally while measuring labels;
+     forcing 0.01ms on every element inflates their computed layout, so nodes
+     come out tiny and spread apart. */
+  *:not(svg):not(svg *) {
+    transition-duration: 0.01ms !important;
   }
 }

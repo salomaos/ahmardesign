@@ -35,6 +35,7 @@ const spacingKeys = {
 
 const spacingValues = {
   '0': '0px',
+  '0.5': '0.125rem', // 2px
   '1': '0.25rem',   // 4px
   '1.5': '0.375rem', // 6px
   '2': '0.5rem',    // 8px
@@ -176,7 +177,7 @@ const widthValues = {
   '1/4': '25%', '2/4': '50%', '3/4': '75%',
   '1/5': '20%', '2/5': '40%', '3/5': '60%', '4/5': '80%',
   '1/6': '16.666667%', '2/6': '33.333333%', '3/6': '50%', '4/6': '66.666667%', '5/6': '83.333333%',
-  'full': '100%', 'auto': 'auto', 'screen': '100vw'
+  'full': '100%', 'auto': 'auto', 'fit': 'fit-content', 'screen': '100vw'
 };
 
 const heightValues = {
@@ -192,7 +193,7 @@ const heightValues = {
 const minHeightValues = {
   '0': '0px', '4': '1rem', '6': '1.5rem', '8': '2rem', '10': '2.5rem',
   '12': '3rem', '16': '4rem', '20': '5rem', '24': '6rem', '32': '8rem',
-  '40': '10rem', '48': '12rem', '56': '14rem', '64': '16rem',
+  '36': '9rem', '40': '10rem', '48': '12rem', '56': '14rem', '64': '16rem',
   'full': '100%', 'screen': '100vh'
 };
 
@@ -211,6 +212,12 @@ const positionValues = {
 };
 
 const insetSides = ['top', 'right', 'bottom', 'left'];
+
+const borderSides = ['t', 'r', 'b', 'l'];
+
+// Bordas compostas (x = esquerda+direita, y = cima+baixo): precisam de longhands,
+// porque `border-x-width` não existe em CSS.
+const borderCompoundSides = { x: ['left', 'right'], y: ['top', 'bottom'] };
 
 const zIndexValues = {
   '0': '0', '10': '10', '20': '20', '30': '30', '40': '40', '50': '50', 'auto': 'auto'
@@ -233,7 +240,9 @@ const lineHeights = {
 };
 
 const minWidthValues = {
-  '0': '0px', 'full': '100%', 'min': 'min-content', 'max': 'max-content',
+  '0': '0px', '12': '3rem', '20': '5rem', '28': '7rem', '36': '9rem',
+  '48': '12rem', '64': '16rem',
+  'full': '100%', 'min': 'min-content', 'max': 'max-content',
   'fit': 'fit-content', 'screen': '100vw'
 };
 
@@ -267,6 +276,51 @@ const objectFits = {
   'object-none': 'none',
   'object-scale-down': 'scale-down'
 };
+
+const selfAligns = {
+  'self-auto': 'auto',
+  'self-start': 'start',
+  'self-center': 'center',
+  'self-end': 'end',
+  'self-stretch': 'stretch'
+};
+
+const placeItemsValues = {
+  'place-items-start': 'start',
+  'place-items-center': 'center',
+  'place-items-end': 'end',
+  'place-items-stretch': 'stretch'
+};
+
+const placeContentValues = {
+  'place-content-start': 'start',
+  'place-content-center': 'center',
+  'place-content-end': 'end',
+  'place-content-between': 'space-between',
+  'place-content-around': 'space-around',
+  'place-content-evenly': 'space-evenly'
+};
+
+const justifyItemsValues = {
+  'justify-items-start': 'start',
+  'justify-items-center': 'center',
+  'justify-items-end': 'end',
+  'justify-items-stretch': 'stretch'
+};
+
+const justifySelfValues = {
+  'justify-self-start': 'start',
+  'justify-self-center': 'center',
+  'justify-self-end': 'end',
+  'justify-self-stretch': 'stretch'
+};
+
+const fontFamilies = {
+  'font-sans': 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  'font-mono': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace'
+};
+
+const lineClamps = ['1', '2', '3', '4', '5', '6'];
 
 // Generate CSS helper rules for a specific prefix
 function generateRules(prefix = '') {
@@ -358,6 +412,18 @@ function generateRules(prefix = '') {
   textAlignments.forEach(align => {
     css += `.${p}text-${align} { text-align: ${align} !important; }\n`;
   });
+  for (const [key, val] of Object.entries(fontFamilies)) {
+    css += `.${p}${key} { font-family: ${val} !important; }\n`;
+  }
+  css += `.${p}italic { font-style: italic !important; }\n`;
+  css += `.${p}not-italic { font-style: normal !important; }\n`;
+  css += `.${p}underline { text-decoration-line: underline !important; }\n`;
+  css += `.${p}line-through { text-decoration-line: line-through !important; }\n`;
+  css += `.${p}no-underline { text-decoration-line: none !important; }\n`;
+  css += `.${p}tabular-nums { font-variant-numeric: tabular-nums !important; }\n`;
+  for (const lines of lineClamps) {
+    css += `.${p}line-clamp-${lines} { display: -webkit-box !important; -webkit-box-orient: vertical; -webkit-line-clamp: ${lines}; overflow: hidden !important; }\n`;
+  }
 
   // 11. Colors (Background and Text)
   for (const [name, variable] of Object.entries(colors)) {
@@ -387,11 +453,18 @@ function generateRules(prefix = '') {
     css += `.${p}${valKey} { position: ${valVal} !important; }\n`;
   }
 
-  // 15. Inset (top / right / bottom / left)
+  // 15. Inset (top / right / bottom / left / inset shorthand), including negatives
   for (const side of insetSides) {
     for (const [valKey, valVal] of Object.entries(spacingValues)) {
       css += `.${p}${side}-${escapeCssValue(valKey)} { ${side}: ${valVal} !important; }\n`;
+      if (valKey === 'auto') continue;
+      css += `.${p}-${side}-${escapeCssValue(valKey)} { ${side}: -${valVal} !important; }\n`;
     }
+  }
+  for (const [valKey, valVal] of Object.entries(spacingValues)) {
+    if (valKey === 'auto') continue;
+    css += `.${p}inset-${escapeCssValue(valKey)} { inset: ${valVal} !important; }\n`;
+    css += `.${p}-inset-${escapeCssValue(valKey)} { inset: -${valVal} !important; }\n`;
   }
 
   // 16. Z-index
@@ -410,11 +483,27 @@ function generateRules(prefix = '') {
   for (const [valKey, valVal] of Object.entries(borderWidths)) {
     css += `.${p}border-${valKey} { border-width: ${valVal}; border-style: solid; }\n`;
   }
-  for (const side of ['t', 'r', 'b', 'l']) {
+  for (const side of borderSides) {
     css += `.${p}border-${side} { border-${side}-width: 1px; border-${side}-style: solid; }\n`;
+    for (const [valKey, valVal] of Object.entries(borderWidths)) {
+      css += `.${p}border-${side}-${valKey} { border-${side}-width: ${valVal}; border-${side}-style: solid; }\n`;
+    }
+    for (const [name, variable] of Object.entries(colors)) {
+      css += `.${p}border-${side}-${name} { border-${side}-color: hsl(${variable}) !important; }\n`;
+    }
   }
   css += `.${p}border-x { border-left-width: 1px; border-right-width: 1px; border-left-style: solid; border-right-style: solid; }\n`;
   css += `.${p}border-y { border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; }\n`;
+  // Bordas compostas (x = esquerda+direita, y = cima+baixo): `border-x-width` não
+  // existe em CSS, então cada longhand é emitido. Só a espessura: a cor por lado
+  // composto (`border-x-primary`) custaria ~3 KB gzip e é expressa por
+  // `border-l-primary border-r-primary`.
+  for (const [side, longhands] of Object.entries(borderCompoundSides)) {
+    for (const [valKey, valVal] of Object.entries(borderWidths)) {
+      const rules = longhands.map((l) => `border-${l}-width: ${valVal}; border-${l}-style: solid;`).join(' ');
+      css += `.${p}border-${side}-${valKey} { ${rules} }\n`;
+    }
+  }
   css += `.${p}border-collapse { border-collapse: collapse; }\n`;
 
   // 19. Divide
@@ -481,6 +570,46 @@ function generateRules(prefix = '') {
     css += `.${p}${key} { object-fit: ${val} !important; }\n`;
   }
 
+  // 29. Self & place alignment (grid/flex box model)
+  for (const [key, val] of Object.entries(selfAligns)) {
+    css += `.${p}${key} { align-self: ${val} !important; }\n`;
+  }
+  for (const [key, val] of Object.entries(placeItemsValues)) {
+    css += `.${p}${key} { place-items: ${val} !important; }\n`;
+  }
+  for (const [key, val] of Object.entries(placeContentValues)) {
+    css += `.${p}${key} { place-content: ${val} !important; }\n`;
+  }
+  for (const [key, val] of Object.entries(justifyItemsValues)) {
+    css += `.${p}${key} { justify-items: ${val} !important; }\n`;
+  }
+  for (const [key, val] of Object.entries(justifySelfValues)) {
+    css += `.${p}${key} { justify-self: ${val} !important; }\n`;
+  }
+
+  return css;
+}
+
+// Generate `hover:` state utilities (curated set: colors, borders, decoration, opacity)
+function generateHoverRules() {
+  let css = '';
+  const s = 'hover\\:';
+
+  for (const [name, variable] of Object.entries(colors)) {
+    css += `.${s}bg-${name}:hover { background-color: hsl(${variable}) !important; }\n`;
+    css += `.${s}text-${name}:hover { color: hsl(${variable}) !important; }\n`;
+    css += `.${s}border-${name}:hover { border-color: hsl(${variable}) !important; }\n`;
+  }
+  css += `.${s}underline:hover { text-decoration-line: underline !important; }\n`;
+  css += `.${s}no-underline:hover { text-decoration-line: none !important; }\n`;
+  css += `.${s}bg-transparent:hover { background-color: transparent !important; }\n`;
+  for (const [valKey, valVal] of Object.entries(borderWidths)) {
+    css += `.${s}border-${valKey}:hover { border-width: ${valVal}; border-style: solid; }\n`;
+  }
+  for (const [valKey, valVal] of Object.entries(opacityValues)) {
+    css += `.${s}opacity-${valKey}:hover { opacity: ${valVal} !important; }\n`;
+  }
+
   return css;
 }
 
@@ -504,6 +633,10 @@ function build() {
   // Append dynamic standard utilities
   combinedCSS += `/* --- Dynamic Standard Utilities --- */\n`;
   combinedCSS += generateRules('');
+
+  // Append hover state utilities
+  combinedCSS += `\n/* --- Hover State Utilities --- */\n`;
+  combinedCSS += generateHoverRules();
   
   // Append dynamic responsive utilities grouped inside media queries
   combinedCSS += `\n/* --- Dynamic Responsive Utilities --- */\n`;
